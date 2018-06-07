@@ -6,7 +6,7 @@
 /*   By: ozalisky <ozalisky@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/01 17:37:49 by ozalisky          #+#    #+#             */
-/*   Updated: 2018/05/05 17:25:48 by ozalisky         ###   ########.fr       */
+/*   Updated: 2018/06/06 19:07:14 by ozalisky         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,8 @@ long	ft_strlen(const char *s)
 	long string_i;
 
 	string_i = 0;
+	if (!s)
+		return (string_i);
 	while (s[string_i])
 	{
 		string_i++;
