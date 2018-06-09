@@ -6,7 +6,7 @@
 /*   By: ozalisky <ozalisky@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/05 20:02:14 by ozalisky          #+#    #+#             */
-/*   Updated: 2018/06/07 17:19:10 by ozalisky         ###   ########.fr       */
+/*   Updated: 2018/06/09 17:17:12 by ozalisky         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ typedef struct		s_room
 	int				y;
 	int				position;
 	struct s_room	*next_room;
+	struct s_room	*prev_room;
 	struct s_room	*start;
 }					t_r;
 
@@ -48,9 +49,9 @@ typedef struct		s_db
 
 	int				error;
 
-	t_r				rooms;
+	t_r				*rooms;
 
-	t_l				links;
+	t_l				*links;
 }					t_db;
 
 #endif //LEM_IN_LEMIN_H

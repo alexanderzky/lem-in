@@ -51,7 +51,7 @@ EQUALS = =
 CMAKE_SOURCE_DIR = "/Users/ozalisky/Google Drive/UNIT FACTORY/PUSH/lem-in"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/Users/ozalisky/Google Drive/UNIT FACTORY/PUSH/lem-in"
+CMAKE_BINARY_DIR = "/Users/ozalisky/Google Drive/UNIT FACTORY/PUSH/lem-in/cmake-build-debug"
 
 #=============================================================================
 # Targets provided globally by CMake.
