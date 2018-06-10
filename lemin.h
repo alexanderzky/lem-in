@@ -6,7 +6,7 @@
 /*   By: ozalisky <ozalisky@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/05 20:02:14 by ozalisky          #+#    #+#             */
-/*   Updated: 2018/06/09 17:17:12 by ozalisky         ###   ########.fr       */
+/*   Updated: 2018/06/10 13:31:12 by ozalisky         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,9 @@
 #define LEM_IN_LEMIN_H
 #include "./libft/libft.h"
 
+
+typedef struct		s_link;
+
 typedef struct		s_room
 {
 	char			*name;
@@ -24,6 +27,7 @@ typedef struct		s_room
 	int				position;
 	struct s_room	*next_room;
 	struct s_room	*prev_room;
+	struct t_l		**links;
 	struct s_room	*start;
 }					t_r;
 
@@ -54,4 +58,4 @@ typedef struct		s_db
 	t_l				*links;
 }					t_db;
 
-#endif //LEM_IN_LEMIN_H
+#endif

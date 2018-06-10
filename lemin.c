@@ -6,7 +6,7 @@
 /*   By: ozalisky <ozalisky@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/05 20:02:21 by ozalisky          #+#    #+#             */
-/*   Updated: 2018/06/09 20:50:05 by ozalisky         ###   ########.fr       */
+/*   Updated: 2018/06/10 14:49:36 by ozalisky         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,7 +106,6 @@ void	ft_lineconcatmap(t_db *db)
 	}
 	str[j] = '\0';
 	db->map = ft_strcpysrc(str);
-//	db->map = str;
 	free(str);
 	str = NULL;
 }
@@ -172,7 +171,6 @@ void	*ft_saveroom(t_db *db)
 	{
 		prev = temp;
 		temp = temp->next_room;
-//		temp->prev_room = prev;
 	}
 
 	if (!(temp = (t_r*)malloc(sizeof(t_r))))
@@ -234,11 +232,9 @@ int		ft_islink(char *str)
 	int i;
 	int minus;
 	int names;
-	int coordinates;
 	int wrong;
 
 	wrong = 0;
-	coordinates = 0;
 	names = 0;
 	minus = 0;
 	i = 0;
@@ -263,6 +259,42 @@ int		ft_islink(char *str)
 
 void	ft_savelink(t_db *db)
 {
+	t_l *links;
+	int i;
+	int j;
+	int length;
+	char *name;
+	char *name2;
+	length = 0;
+	i = 0;
+	j = 0;
+	while (db->line[i++] != '-')
+	{
+		++length;
+	}
+	name = ft_memalloc(sizeof(char*) * (length + 1));
+	i = 0;
+	while (j < length)
+	{
+		name[j++] = db->line[i++];
+	}
+	name[j] = '\0';
+	length = 0;
+	while (++i < ft_strlen(db->line))
+	{
+		++length;
+	}
+	i = i - length;
+	name2 = ft_memalloc(sizeof(char*) * (length + 1));
+	j = 0;
+	while (j < length)
+	{
+		name2[j++] = db->line[i++];
+	}
+	name2[j] = '\0';
+
+	/*search name through s_room names */
+
 
 }
 
@@ -312,7 +344,6 @@ int		main(void)
 		if (db.line[0] == '\0')
 			break ;
 		ft_check_line(&db);
-//		free(db.line);
 	}
 	free(db.line);
 	ft_validate(&db);
