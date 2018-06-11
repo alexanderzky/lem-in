@@ -6,7 +6,7 @@
 /*   By: ozalisky <ozalisky@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/05 20:02:21 by ozalisky          #+#    #+#             */
-/*   Updated: 2018/06/10 14:49:36 by ozalisky         ###   ########.fr       */
+/*   Updated: 2018/06/11 20:52:29 by ozalisky         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -263,8 +263,11 @@ void	ft_savelink(t_db *db)
 	int i;
 	int j;
 	int length;
-	char *name;
-	char *name2;
+	char *source_name;
+	char *target_name;
+	t_r *source;
+	t_r *target;
+
 	length = 0;
 	i = 0;
 	j = 0;
@@ -272,28 +275,51 @@ void	ft_savelink(t_db *db)
 	{
 		++length;
 	}
-	name = ft_memalloc(sizeof(char*) * (length + 1));
+	source_name = ft_memalloc(sizeof(char*) * (length + 1));
 	i = 0;
 	while (j < length)
 	{
-		name[j++] = db->line[i++];
+		source_name[j++] = db->line[i++];
 	}
-	name[j] = '\0';
+	source_name[j] = '\0';
 	length = 0;
 	while (++i < ft_strlen(db->line))
 	{
 		++length;
 	}
 	i = i - length;
-	name2 = ft_memalloc(sizeof(char*) * (length + 1));
+	target_name = ft_memalloc(sizeof(char*) * (length + 1));
 	j = 0;
 	while (j < length)
 	{
-		name2[j++] = db->line[i++];
+		target_name[j++] = db->line[i++];
 	}
-	name2[j] = '\0';
+	target_name[j] = '\0';
 
-	/*search name through s_room names */
+	source = db->rooms->start;
+	while (source && ft_strcmp(source_name, source->name))
+	{
+		source = source->next_room;
+	}
+
+	target = db->rooms->start;
+	while (target && ft_strcmp(target_name, target->name))
+	{
+		target = target->next_room;
+	}
+
+	while (source->links != NULL)
+	{
+		source->links = links->next_link;
+	}
+
+	source->links = ft_memalloc(sizeof(t_l*));
+	source->links->room = target;
+
+
+
+
+	/*search source_name through s_room names */
 
 
 }

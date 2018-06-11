@@ -6,7 +6,7 @@
 /*   By: ozalisky <ozalisky@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/05 20:02:14 by ozalisky          #+#    #+#             */
-/*   Updated: 2018/06/10 13:31:12 by ozalisky         ###   ########.fr       */
+/*   Updated: 2018/06/11 20:52:29 by ozalisky         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,16 +27,18 @@ typedef struct		s_room
 	int				position;
 	struct s_room	*next_room;
 	struct s_room	*prev_room;
-	struct t_l		**links;
+	struct s_link	*links;
 	struct s_room	*start;
+	int				steps;
 }					t_r;
 
 typedef struct		s_link
 {
-	t_r			*previous_room;
-	t_r			*next_room;
+//	t_r				*previous_room;
+	struct s_link	*next_link;
+	struct s_room	*room;
 
-	int				position;
+	int				connected;
 }					t_l;
 
 typedef struct		s_db
