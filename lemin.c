@@ -6,7 +6,7 @@
 /*   By: ozalisky <ozalisky@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/05 20:02:21 by ozalisky          #+#    #+#             */
-/*   Updated: 2018/06/11 20:52:29 by ozalisky         ###   ########.fr       */
+/*   Updated: 2018/06/12 13:02:41 by ozalisky         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -156,12 +156,14 @@ int		ft_isroom(char *str)
 	return (0);
 }
 
-void	*ft_saveroom(t_db *db)
+void	ft_saveroom(t_db *db)
 {
 	int i;
 	t_r	*prev;
 	t_r	*temp;
 	int name_length;
+
+
 
 	name_length = 0;
 	temp = db->rooms;
@@ -175,7 +177,6 @@ void	*ft_saveroom(t_db *db)
 
 	if (!(temp = (t_r*)malloc(sizeof(t_r))))
 		db->error = 1;
-
 	while (db->line[i++] != ' ')
 	{
 		++name_length;
@@ -259,7 +260,6 @@ int		ft_islink(char *str)
 
 void	ft_savelink(t_db *db)
 {
-	t_l *links;
 	int i;
 	int j;
 	int length;
@@ -268,9 +268,14 @@ void	ft_savelink(t_db *db)
 	t_r *source;
 	t_r *target;
 
+	t_l *prev_link;
+
 	length = 0;
 	i = 0;
 	j = 0;
+
+
+
 	while (db->line[i++] != '-')
 	{
 		++length;
@@ -308,13 +313,28 @@ void	ft_savelink(t_db *db)
 		target = target->next_room;
 	}
 
-	while (source->links != NULL)
+
+	prev_link = source->links;
+	while (prev_link != NULL)
 	{
-		source->links = links->next_link;
+		prev_link = prev_link->next_link;
+	}
+	prev_link = ft_memalloc(sizeof(t_l));
+//	prev_link = source->links;
+
+	prev_link->room = target;
+	prev_link->connected = 0;
+	prev_link->next_link = NULL;
+
+	if (source->links == NULL)
+	{
+		source->links = prev_link;
+	}
+	else if (source->links->next_link == NULL)
+	{
+		source->links->next_link = prev_link;
 	}
 
-	source->links = ft_memalloc(sizeof(t_l*));
-	source->links->room = target;
 
 
 
