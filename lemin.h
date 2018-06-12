@@ -6,7 +6,7 @@
 /*   By: ozalisky <ozalisky@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/05 20:02:14 by ozalisky          #+#    #+#             */
-/*   Updated: 2018/06/12 12:20:57 by ozalisky         ###   ########.fr       */
+/*   Updated: 2018/06/12 21:13:38 by ozalisky         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include "./libft/libft.h"
 
 
-typedef struct		s_link;
+struct		s_link;
 
 typedef struct		s_room
 {
@@ -58,6 +58,16 @@ typedef struct		s_db
 	t_r				*rooms;
 
 	t_l				*links;
-}					t_db;
 
+
+	int				ants_flag;
+	int				rooms_flag;
+	int				links_flag;
+	int				start_flag;
+	int				end_flag;
+}					t_db;
+int					ft_islink(char *str);
+void				ft_savelink(t_db *db);
+int					ft_isroom(char *str);
+void				ft_saveroom(t_db *db);
 #endif

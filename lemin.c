@@ -6,7 +6,7 @@
 /*   By: ozalisky <ozalisky@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/05 20:02:21 by ozalisky          #+#    #+#             */
-/*   Updated: 2018/06/12 13:02:41 by ozalisky         ###   ########.fr       */
+/*   Updated: 2018/06/12 21:50:15 by ozalisky         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,15 @@
 
 void	ft_validate(t_db *db)
 {
-
+	if (db->ants < 0)
+	{
+		ft_printf("ERROR\n");
+		exit(0);
+	}
+	else if (ft_check_rooms)
+	{}
+	else if (ft_check_links)
+	{}
 }
 
 void	ft_comments(t_db *db)
@@ -37,6 +45,8 @@ int		ft_isnumber(char *str)
 	int i;
 
 	i = 0;
+	if (ft_atoi(str) < 0 || ft_atoi(str) > 2147483647)
+		return (0);
 	while (str[i])
 	{
 		if (ft_isdigit(str[i]))
@@ -110,257 +120,34 @@ void	ft_lineconcatmap(t_db *db)
 	str = NULL;
 }
 
-int		ft_isroom(char *str)
-{
-	int i;
-	int spaces;
-	int name;
-	int coordinates;
-	int wrong;
-
-	wrong = 0;
-	coordinates = 0;
-	name = 0;
-	spaces = 0;
-	i = 0;
-	while (i < ft_strlen(str))
-	{
-		if (i == 0 && str[i] != 'L' && str[i] != '#' && str[i] != ' ')
-		{
-			++name;
-			while (i < ft_strlen(str) && str[i + 1] != ' ')
-				++i;
-		}
-		else if (str[i] == ' ')
-			++spaces;
-		else if (ft_isdigit(str[i]))
-		{
-			++coordinates;
-			while (i < ft_strlen(str) && ft_isdigit(str[i]) && str[i + 1] != ' ')
-			{
-				++i;
-			}
-			if (ft_isalpha(str[i]))
-			{
-				++wrong;
-			}
-		}
-		else if (ft_isalpha(str[i]))
-		{
-			++wrong;
-		}
-		++i;
-	}
-	if (name == 1 && spaces == 2 && coordinates == 2 && wrong == 0)
-		return (1);
-	return (0);
-}
-
-void	ft_saveroom(t_db *db)
-{
-	int i;
-	t_r	*prev;
-	t_r	*temp;
-	int name_length;
-
-
-
-	name_length = 0;
-	temp = db->rooms;
-	i = 0;
-	prev = NULL;
-	while (temp != NULL)
-	{
-		prev = temp;
-		temp = temp->next_room;
-	}
-
-	if (!(temp = (t_r*)malloc(sizeof(t_r))))
-		db->error = 1;
-	while (db->line[i++] != ' ')
-	{
-		++name_length;
-	}
-	temp->name = ft_memalloc(sizeof(char *) * (name_length + 1));
-	i = 0;
-	while (db->line[i] != ' ')
-	{
-		temp->name[i] = db->line[i];
-		++i;
-	}
-	temp->name[i] = '\0';
-	while (!(ft_isdigit(db->line[i])))
-		++i;
-	temp->x = ft_atoi(db->line + i);
-	while (ft_isdigit(db->line[i]))
-		++i;
-	temp->y = ft_atoi(db->line + i);
-	if (db->start)
-	{
-		temp->position = 1;
-		db->start = 0;
-	}
-	else if (db->end)
-	{
-		temp->position = -1;
-		db->end = 0;
-	}
-	else
-		temp->position = 0;
-	if (prev != NULL)
-	{
-		temp->prev_room = prev;
-		prev->next_room = temp;
-	}
-	if (temp->position == 1)
-	{
-		temp->start = temp;
-		temp->prev_room = prev;
-	}
-	else if (!temp->position)
-	{
-		temp->start = temp->prev_room->start;
-	}
-	temp->next_room = NULL;
-	if (db->rooms == NULL)
-	{
-		db->rooms = temp->start;
-	}
-}
-
-int		ft_islink(char *str)
-{
-	int i;
-	int minus;
-	int names;
-	int wrong;
-
-	wrong = 0;
-	names = 0;
-	minus = 0;
-	i = 0;
-	while (i < ft_strlen(str))
-	{
-		if (str[i] != 'L' && str[i] != '#' && str[i] != ' ' && str[i] != '-')
-		{
-			++names;
-			while (i < ft_strlen(str) && str[i + 1] != '-')
-				++i;
-		}
-		else if (str[i] == '-')
-			++minus;
-		else
-			++wrong;
-		++i;
-	}
-	if (names == 2 && minus == 1 && wrong == 0)
-		return (1);
-	return (0);
-}
-
-void	ft_savelink(t_db *db)
-{
-	int i;
-	int j;
-	int length;
-	char *source_name;
-	char *target_name;
-	t_r *source;
-	t_r *target;
-
-	t_l *prev_link;
-
-	length = 0;
-	i = 0;
-	j = 0;
-
-
-
-	while (db->line[i++] != '-')
-	{
-		++length;
-	}
-	source_name = ft_memalloc(sizeof(char*) * (length + 1));
-	i = 0;
-	while (j < length)
-	{
-		source_name[j++] = db->line[i++];
-	}
-	source_name[j] = '\0';
-	length = 0;
-	while (++i < ft_strlen(db->line))
-	{
-		++length;
-	}
-	i = i - length;
-	target_name = ft_memalloc(sizeof(char*) * (length + 1));
-	j = 0;
-	while (j < length)
-	{
-		target_name[j++] = db->line[i++];
-	}
-	target_name[j] = '\0';
-
-	source = db->rooms->start;
-	while (source && ft_strcmp(source_name, source->name))
-	{
-		source = source->next_room;
-	}
-
-	target = db->rooms->start;
-	while (target && ft_strcmp(target_name, target->name))
-	{
-		target = target->next_room;
-	}
-
-
-	prev_link = source->links;
-	while (prev_link != NULL)
-	{
-		prev_link = prev_link->next_link;
-	}
-	prev_link = ft_memalloc(sizeof(t_l));
-//	prev_link = source->links;
-
-	prev_link->room = target;
-	prev_link->connected = 0;
-	prev_link->next_link = NULL;
-
-	if (source->links == NULL)
-	{
-		source->links = prev_link;
-	}
-	else if (source->links->next_link == NULL)
-	{
-		source->links->next_link = prev_link;
-	}
-
-
-
-
-
-	/*search source_name through s_room names */
-
-
-}
-
 void	ft_check_line(t_db *db)
 {
-	if (db->ants < 1 && ft_isnumber(db->line))
+	if (db->ants < 1 && ft_isnumber(db->line) && !db->rooms_flag && !db->links_flag)
+	{
 		db->ants = ft_atoi(db->line);
-	else if (db->line[0] == '#' && db->line[1] == '#')
+		db->ants_flag = 1;
+	}
+	else if (ft_strncmp("##s",db->line,3) == 0 && !db->start_flag)
 	{
 		ft_comments(db);
+		db->start_flag = 1;
 	}
-	else if (ft_isroom(db->line))
+	else if (ft_strncmp("##e",db->line,3) == 0 && !db->end_flag)
+	{
+		ft_comments(db);
+		db->end_flag = 1;
+	}
+	else if (ft_isroom(db->line) && db->ants_flag && !db->links_flag)
 	{
 		ft_saveroom(db);
+		db->rooms_flag = 1;
 	}
-	else if (ft_islink(db->line))
+	else if (ft_islink(db->line) && db->ants_flag && db->rooms_flag)
 	{
 		ft_savelink(db);
+		db->links_flag = 1;
 	}
-	else
+	else if (db->line[0] != '#')
 		db->error = 1;
 	ft_lineconcatmap(db);
 	free(db->line);
@@ -385,7 +172,7 @@ int		main(void)
 
 	ft_init(&db);
 	db.fd = open("../maps", O_RDONLY);
-	while (!db.error && ((get_next_line(db.fd, &db.line) > 0)))
+	while (!db.error && get_next_line(db.fd, &db.line) > 0)
 	{
 		if (db.line[0] == '\0')
 			break ;

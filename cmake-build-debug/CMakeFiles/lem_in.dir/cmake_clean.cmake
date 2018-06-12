@@ -100,6 +100,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/lem_in.dir/libft/ft_xformat.c.o"
   "CMakeFiles/lem_in.dir/libft/get_next_line.c.o"
   "CMakeFiles/lem_in.dir/lemin.c.o"
+  "CMakeFiles/lem_in.dir/ft_links.c.o"
+  "CMakeFiles/lem_in.dir/ft_rooms.c.o"
   "lem_in.pdb"
   "lem_in"
 )

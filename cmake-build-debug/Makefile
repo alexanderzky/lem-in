@@ -123,6 +123,60 @@ lem_in/fast:
 	$(MAKE) -f CMakeFiles/lem_in.dir/build.make CMakeFiles/lem_in.dir/build
 .PHONY : lem_in/fast
 
+ft_links.o: ft_links.c.o
+
+.PHONY : ft_links.o
+
+# target to build an object file
+ft_links.c.o:
+	$(MAKE) -f CMakeFiles/lem_in.dir/build.make CMakeFiles/lem_in.dir/ft_links.c.o
+.PHONY : ft_links.c.o
+
+ft_links.i: ft_links.c.i
+
+.PHONY : ft_links.i
+
+# target to preprocess a source file
+ft_links.c.i:
+	$(MAKE) -f CMakeFiles/lem_in.dir/build.make CMakeFiles/lem_in.dir/ft_links.c.i
+.PHONY : ft_links.c.i
+
+ft_links.s: ft_links.c.s
+
+.PHONY : ft_links.s
+
+# target to generate assembly for a file
+ft_links.c.s:
+	$(MAKE) -f CMakeFiles/lem_in.dir/build.make CMakeFiles/lem_in.dir/ft_links.c.s
+.PHONY : ft_links.c.s
+
+ft_rooms.o: ft_rooms.c.o
+
+.PHONY : ft_rooms.o
+
+# target to build an object file
+ft_rooms.c.o:
+	$(MAKE) -f CMakeFiles/lem_in.dir/build.make CMakeFiles/lem_in.dir/ft_rooms.c.o
+.PHONY : ft_rooms.c.o
+
+ft_rooms.i: ft_rooms.c.i
+
+.PHONY : ft_rooms.i
+
+# target to preprocess a source file
+ft_rooms.c.i:
+	$(MAKE) -f CMakeFiles/lem_in.dir/build.make CMakeFiles/lem_in.dir/ft_rooms.c.i
+.PHONY : ft_rooms.c.i
+
+ft_rooms.s: ft_rooms.c.s
+
+.PHONY : ft_rooms.s
+
+# target to generate assembly for a file
+ft_rooms.c.s:
+	$(MAKE) -f CMakeFiles/lem_in.dir/build.make CMakeFiles/lem_in.dir/ft_rooms.c.s
+.PHONY : ft_rooms.c.s
+
 lemin.o: lemin.c.o
 
 .PHONY : lemin.o
@@ -2859,6 +2913,12 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... lem_in"
+	@echo "... ft_links.o"
+	@echo "... ft_links.i"
+	@echo "... ft_links.s"
+	@echo "... ft_rooms.o"
+	@echo "... ft_rooms.i"
+	@echo "... ft_rooms.s"
 	@echo "... lemin.o"
 	@echo "... lemin.i"
 	@echo "... lemin.s"

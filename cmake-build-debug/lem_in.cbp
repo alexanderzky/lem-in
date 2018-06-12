@@ -80,6 +80,12 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/Users/ozalisky/Google Drive/UNIT FACTORY/PUSH/lem-in/ft_links.c">
+			<Option target="lem_in"/>
+		</Unit>
+		<Unit filename="/Users/ozalisky/Google Drive/UNIT FACTORY/PUSH/lem-in/ft_rooms.c">
+			<Option target="lem_in"/>
+		</Unit>
 		<Unit filename="/Users/ozalisky/Google Drive/UNIT FACTORY/PUSH/lem-in/lemin.c">
 			<Option target="lem_in"/>
 		</Unit>
