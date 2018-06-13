@@ -6,7 +6,7 @@
 /*   By: ozalisky <ozalisky@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/05 20:02:21 by ozalisky          #+#    #+#             */
-/*   Updated: 2018/06/12 21:50:15 by ozalisky         ###   ########.fr       */
+/*   Updated: 2018/06/13 21:23:24 by ozalisky         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,8 @@ void	ft_validate(t_db *db)
 		ft_printf("ERROR\n");
 		exit(0);
 	}
-	else if (ft_check_rooms)
-	{}
-	else if (ft_check_links)
-	{}
+	ft_check_rooms(db);
+	ft_check_links(db);
 }
 
 void	ft_comments(t_db *db)
@@ -72,7 +70,7 @@ char	*ft_strcpysrc(const char *src)
 
 	dst = ft_memalloc(sizeof(char*) * (ft_strlen(src) + 1));
 	i = 0;
-	while (src[i] != '\0')
+	while (src[i] ^ '\0')
 	{
 		dst[i] = src[i];
 		++i;
@@ -105,7 +103,7 @@ void	ft_lineconcatmap(t_db *db)
 		free(db->map);
 		db->map = NULL;
 	}
-	if (size_map != 0)
+	if (size_map ^ 0)
 	{
 		str[j++] = '\n';
 	}
@@ -147,7 +145,8 @@ void	ft_check_line(t_db *db)
 		ft_savelink(db);
 		db->links_flag = 1;
 	}
-	else if (db->line[0] != '#')
+	else if (db->line[0] ^ '#' || (ft_strncmp("##s",db->line,3) && db->start_flag) ||
+			(ft_strncmp("##e",db->line,3) && db->end_flag))
 		db->error = 1;
 	ft_lineconcatmap(db);
 	free(db->line);

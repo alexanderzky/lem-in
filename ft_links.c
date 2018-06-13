@@ -6,11 +6,21 @@
 /*   By: ozalisky <ozalisky@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/12 21:01:21 by ozalisky          #+#    #+#             */
-/*   Updated: 2018/06/12 21:01:21 by ozalisky         ###   ########.fr       */
+/*   Updated: 2018/06/13 19:25:52 by ozalisky         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lemin.h"
+
+
+void	ft_check_links(t_db *db)
+{
+	if (!db->end_flag || !db->start_flag)
+	{
+		ft_printf("ERROR\n");
+		exit(0);
+	}
+}
 
 int		ft_islink(char *str)
 {
@@ -25,10 +35,10 @@ int		ft_islink(char *str)
 	i = 0;
 	while (i < ft_strlen(str))
 	{
-		if (str[i] != 'L' && str[i] != '#' && str[i] != ' ' && str[i] != '-')
+		if (str[i] ^ 'L' && str[i] ^ '#' && str[i] ^ ' ' && str[i] ^ '-')
 		{
 			++names;
-			while (i < ft_strlen(str) && str[i + 1] != '-')
+			while (i < ft_strlen(str) && str[i + 1] ^ '-')
 				++i;
 		}
 		else if (str[i] == '-')
@@ -60,7 +70,7 @@ void	ft_savelink(t_db *db)
 
 
 
-	while (db->line[i++] != '-')
+	while (db->line[i++] ^ '-')
 	{
 		++length;
 	}

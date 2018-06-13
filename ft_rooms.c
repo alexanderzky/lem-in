@@ -6,11 +6,38 @@
 /*   By: ozalisky <ozalisky@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/12 21:02:54 by ozalisky          #+#    #+#             */
-/*   Updated: 2018/06/12 21:05:00 by ozalisky         ###   ########.fr       */
+/*   Updated: 2018/06/13 20:56:19 by ozalisky         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lemin.h"
+
+void	ft_check_rooms(t_db *db)
+{
+	t_r		*temp;
+	t_r		*inner_temp;
+
+	temp = db->rooms->start;
+	while (temp->next_room)
+	{
+		inner_temp = temp->next_room;
+		while (inner_temp)
+		{
+			if (temp->x == inner_temp->x && temp->y == inner_temp->y)
+			{
+				ft_printf("ERROR\n");
+				exit(0);
+			}
+			if (ft_strcmp(temp->name,inner_temp->name) == 0)
+			{
+				ft_printf("ERROR\n");
+				exit(0);
+			}
+			inner_temp = inner_temp->next_room;
+		}
+		temp = temp->next_room;
+	}
+}
 
 int		ft_isroom(char *str)
 {
@@ -27,10 +54,10 @@ int		ft_isroom(char *str)
 	i = 0;
 	while (i < ft_strlen(str))
 	{
-		if (i == 0 && str[i] != 'L' && str[i] != '#' && str[i] != ' ')
+		if (i == 0 && str[i] ^ 'L' && str[i] ^ '#' && str[i] ^ ' ')
 		{
 			++name;
-			while (i < ft_strlen(str) && str[i + 1] != ' ')
+			while (i < ft_strlen(str) && str[i + 1] ^ ' ')
 				++i;
 		}
 		else if (str[i] == ' ')
@@ -38,7 +65,7 @@ int		ft_isroom(char *str)
 		else if (ft_isdigit(str[i]))
 		{
 			++coordinates;
-			while (i < ft_strlen(str) && ft_isdigit(str[i]) && str[i + 1] != ' ')
+			while (i < ft_strlen(str) && ft_isdigit(str[i]) && str[i + 1] ^ ' ')
 			{
 				++i;
 			}
@@ -77,13 +104,13 @@ void	ft_saveroom(t_db *db)
 
 	if (!(temp = (t_r*)malloc(sizeof(t_r))))
 		db->error = 1;
-	while (db->line[i++] != ' ')
+	while (db->line[i++] ^ ' ')
 	{
 		++name_length;
 	}
 	temp->name = ft_memalloc(sizeof(char *) * (name_length + 1));
 	i = 0;
-	while (db->line[i] != ' ')
+	while (db->line[i] ^ ' ')
 	{
 		temp->name[i] = db->line[i];
 		++i;

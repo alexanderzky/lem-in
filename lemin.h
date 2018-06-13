@@ -6,7 +6,7 @@
 /*   By: ozalisky <ozalisky@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/05 20:02:14 by ozalisky          #+#    #+#             */
-/*   Updated: 2018/06/12 21:13:38 by ozalisky         ###   ########.fr       */
+/*   Updated: 2018/06/13 19:25:52 by ozalisky         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,4 +70,6 @@ int					ft_islink(char *str);
 void				ft_savelink(t_db *db);
 int					ft_isroom(char *str);
 void				ft_saveroom(t_db *db);
+void				ft_check_rooms(t_db *db);
+void				ft_check_links(t_db *db);
 #endif
