@@ -5,6 +5,10 @@ CMakeFiles/lem_in.dir/ft_links.c.o: .././libft/libft.h
 CMakeFiles/lem_in.dir/ft_links.c.o: ../ft_links.c
 CMakeFiles/lem_in.dir/ft_links.c.o: ../lemin.h
 
+CMakeFiles/lem_in.dir/ft_paths.c.o: .././libft/libft.h
+CMakeFiles/lem_in.dir/ft_paths.c.o: ../ft_paths.c
+CMakeFiles/lem_in.dir/ft_paths.c.o: ../lemin.h
+
 CMakeFiles/lem_in.dir/ft_rooms.c.o: .././libft/libft.h
 CMakeFiles/lem_in.dir/ft_rooms.c.o: ../ft_rooms.c
 CMakeFiles/lem_in.dir/ft_rooms.c.o: ../lemin.h

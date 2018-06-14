@@ -150,6 +150,33 @@ ft_links.c.s:
 	$(MAKE) -f CMakeFiles/lem_in.dir/build.make CMakeFiles/lem_in.dir/ft_links.c.s
 .PHONY : ft_links.c.s
 
+ft_paths.o: ft_paths.c.o
+
+.PHONY : ft_paths.o
+
+# target to build an object file
+ft_paths.c.o:
+	$(MAKE) -f CMakeFiles/lem_in.dir/build.make CMakeFiles/lem_in.dir/ft_paths.c.o
+.PHONY : ft_paths.c.o
+
+ft_paths.i: ft_paths.c.i
+
+.PHONY : ft_paths.i
+
+# target to preprocess a source file
+ft_paths.c.i:
+	$(MAKE) -f CMakeFiles/lem_in.dir/build.make CMakeFiles/lem_in.dir/ft_paths.c.i
+.PHONY : ft_paths.c.i
+
+ft_paths.s: ft_paths.c.s
+
+.PHONY : ft_paths.s
+
+# target to generate assembly for a file
+ft_paths.c.s:
+	$(MAKE) -f CMakeFiles/lem_in.dir/build.make CMakeFiles/lem_in.dir/ft_paths.c.s
+.PHONY : ft_paths.c.s
+
 ft_rooms.o: ft_rooms.c.o
 
 .PHONY : ft_rooms.o
@@ -2916,6 +2943,9 @@ help:
 	@echo "... ft_links.o"
 	@echo "... ft_links.i"
 	@echo "... ft_links.s"
+	@echo "... ft_paths.o"
+	@echo "... ft_paths.i"
+	@echo "... ft_paths.s"
 	@echo "... ft_rooms.o"
 	@echo "... ft_rooms.i"
 	@echo "... ft_rooms.s"

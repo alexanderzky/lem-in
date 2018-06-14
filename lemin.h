@@ -6,7 +6,7 @@
 /*   By: ozalisky <ozalisky@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/05 20:02:14 by ozalisky          #+#    #+#             */
-/*   Updated: 2018/06/13 19:25:52 by ozalisky         ###   ########.fr       */
+/*   Updated: 2018/06/14 18:16:45 by ozalisky         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ typedef struct		s_room
 	struct s_room	*prev_room;
 	struct s_link	*links;
 	struct s_room	*start;
+	struct s_room	*end;
 	int				steps;
 }					t_r;
 
@@ -63,8 +64,6 @@ typedef struct		s_db
 	int				ants_flag;
 	int				rooms_flag;
 	int				links_flag;
-	int				start_flag;
-	int				end_flag;
 }					t_db;
 int					ft_islink(char *str);
 void				ft_savelink(t_db *db);
@@ -72,4 +71,5 @@ int					ft_isroom(char *str);
 void				ft_saveroom(t_db *db);
 void				ft_check_rooms(t_db *db);
 void				ft_check_links(t_db *db);
+void				ft_operate(t_db *db);
 #endif

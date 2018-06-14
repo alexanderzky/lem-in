@@ -6,7 +6,7 @@
 /*   By: ozalisky <ozalisky@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/05 20:02:21 by ozalisky          #+#    #+#             */
-/*   Updated: 2018/06/13 21:23:24 by ozalisky         ###   ########.fr       */
+/*   Updated: 2018/06/14 18:16:45 by ozalisky         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,18 @@
 
 void	ft_validate(t_db *db)
 {
-	if (db->ants < 0)
+	if (db->ants < 1)
 	{
 		ft_printf("ERROR\n");
 		exit(0);
 	}
-	ft_check_rooms(db);
+	else if (!db->rooms)
+	{
+		ft_printf("ERROR\n");
+		exit(0);
+	}
 	ft_check_links(db);
+	ft_check_rooms(db);
 }
 
 void	ft_comments(t_db *db)
@@ -56,11 +61,6 @@ int		ft_isnumber(char *str)
 
 	}
 	return (1);
-}
-
-void	ft_operate(t_db *db)
-{
-
 }
 
 char	*ft_strcpysrc(const char *src)
@@ -125,15 +125,15 @@ void	ft_check_line(t_db *db)
 		db->ants = ft_atoi(db->line);
 		db->ants_flag = 1;
 	}
-	else if (ft_strncmp("##s",db->line,3) == 0 && !db->start_flag)
+	else if (ft_strncmp("##s",db->line,3) == 0 && db->start == -1)
 	{
 		ft_comments(db);
-		db->start_flag = 1;
+		db->start = 1;
 	}
-	else if (ft_strncmp("##e",db->line,3) == 0 && !db->end_flag)
+	else if (ft_strncmp("##e",db->line,3) == 0 && db->end == -1)
 	{
 		ft_comments(db);
-		db->end_flag = 1;
+		db->end = 1;
 	}
 	else if (ft_isroom(db->line) && db->ants_flag && !db->links_flag)
 	{
@@ -145,10 +145,12 @@ void	ft_check_line(t_db *db)
 		ft_savelink(db);
 		db->links_flag = 1;
 	}
-	else if (db->line[0] ^ '#' || (ft_strncmp("##s",db->line,3) && db->start_flag) ||
-			(ft_strncmp("##e",db->line,3) && db->end_flag))
+	else if (db->line[0] ^ '#' || (!ft_strcmp("##start",db->line) && db->start > 0) ||
+			(!ft_strcmp("##end",db->line) && db->end > 0) ||
+			(db->line[0] == '#' && db->line[1] ^ '#' && (db->start == 1 || db->end == 1)))
 		db->error = 1;
-	ft_lineconcatmap(db);
+	if (!db->error)
+		ft_lineconcatmap(db);
 	free(db->line);
 	db->line = NULL;
 }
@@ -157,12 +159,13 @@ void	ft_init(t_db *db)
 {
 	db->map = NULL;
 	db->ants = 0;
-	db->start = 0;
-	db->end = 0;
+	db->start = -1;
+	db->end = -1;
 	db->error = 0;
 	db->rooms = NULL;
 	db->links = NULL;
-
+	db->rooms_flag = 0;
+	db->links_flag = 0;
 }
 
 int		main(void)

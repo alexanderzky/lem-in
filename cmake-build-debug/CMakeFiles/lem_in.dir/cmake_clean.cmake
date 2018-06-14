@@ -102,6 +102,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/lem_in.dir/lemin.c.o"
   "CMakeFiles/lem_in.dir/ft_links.c.o"
   "CMakeFiles/lem_in.dir/ft_rooms.c.o"
+  "CMakeFiles/lem_in.dir/ft_paths.c.o"
   "lem_in.pdb"
   "lem_in"
 )

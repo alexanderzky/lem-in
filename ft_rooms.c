@@ -6,7 +6,7 @@
 /*   By: ozalisky <ozalisky@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/12 21:02:54 by ozalisky          #+#    #+#             */
-/*   Updated: 2018/06/13 20:56:19 by ozalisky         ###   ########.fr       */
+/*   Updated: 2018/06/14 19:33:22 by ozalisky         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,28 @@ void	ft_check_rooms(t_db *db)
 		}
 		temp = temp->next_room;
 	}
+}
+
+int		ft_chrinstr(const char *s, int c)
+{
+	char *c_s;
+	char c_c;
+
+	c_s = (char *)s;
+	c_c = (char)c;
+	while (*c_s)
+	{
+		if (*c_s == c_c)
+		{
+			return (1);
+		}
+		c_s++;
+	}
+	if (*c_s == c_c)
+	{
+		return (1);
+	}
+	return (0);
 }
 
 int		ft_isroom(char *str)
@@ -103,12 +125,19 @@ void	ft_saveroom(t_db *db)
 	}
 
 	if (!(temp = (t_r*)malloc(sizeof(t_r))))
-		db->error = 1;
+	{
+		ft_printf("ERROR\n");
+		exit(0);
+	}
 	while (db->line[i++] ^ ' ')
 	{
 		++name_length;
 	}
-	temp->name = ft_memalloc(sizeof(char *) * (name_length + 1));
+	if (!(temp->name = ft_memalloc(sizeof(char *) * (name_length + 1))))
+	{
+		ft_printf("ERROR\n");
+		exit(0);
+	}
 	i = 0;
 	while (db->line[i] ^ ' ')
 	{
@@ -116,25 +145,33 @@ void	ft_saveroom(t_db *db)
 		++i;
 	}
 	temp->name[i] = '\0';
+	if (ft_chrinstr(temp->name,'-'))
+	{
+		db->error = 1;
+	}
 	while (!(ft_isdigit(db->line[i])))
 		++i;
 	temp->x = ft_atoi(db->line + i);
 	while (ft_isdigit(db->line[i]))
 		++i;
 	temp->y = ft_atoi(db->line + i);
-	if (db->start)
+	if (db->start == 1)
 	{
 		temp->position = 1;
-		db->start = 0;
+		db->start = 2;
 	}
-	else if (db->end)
+	else if (db->end == 1)
 	{
 		temp->position = -1;
-		db->end = 0;
+		db->end = 2;
 	}
 	else
 		temp->position = 0;
-	if (prev != NULL)
+	if (!prev)
+	{
+		temp->start = temp;
+	}
+	else if (prev)
 	{
 		temp->prev_room = prev;
 		prev->next_room = temp;
@@ -144,13 +181,18 @@ void	ft_saveroom(t_db *db)
 		temp->start = temp;
 		temp->prev_room = prev;
 	}
-	else if (temp->position ^ 1)
+	else if (db->start == 2)
 	{
 		temp->start = temp->prev_room->start;
 	}
 	temp->next_room = NULL;
 	temp->links = NULL;
-	if (db->rooms == NULL)
+	temp->end = NULL;
+	if (db->end == 2)
+	{
+		temp->start->end = temp; /*TEST THIS TOMORROW*/
+	}
+	if (db->rooms == NULL){}
 	{
 		db->rooms = temp->start;
 	}

@@ -6,7 +6,7 @@
 /*   By: ozalisky <ozalisky@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/12 21:01:21 by ozalisky          #+#    #+#             */
-/*   Updated: 2018/06/13 19:25:52 by ozalisky         ###   ########.fr       */
+/*   Updated: 2018/06/14 13:00:34 by ozalisky         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 void	ft_check_links(t_db *db)
 {
-	if (!db->end_flag || !db->start_flag)
+	if (db->end ^ 2 || db->start ^ 2)
 	{
 		ft_printf("ERROR\n");
 		exit(0);
