@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_rooms.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ozalisky <ozalisky@student.unit.ua>        +#+  +:+       +#+        */
+/*   By: ozalisky <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/12 21:02:54 by ozalisky          #+#    #+#             */
-/*   Updated: 2018/06/14 19:33:22 by ozalisky         ###   ########.fr       */
+/*   Updated: 2018/07/01 12:58:01 by ozalisky         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,6 +129,7 @@ void	ft_saveroom(t_db *db)
 		ft_printf("ERROR\n");
 		exit(0);
 	}
+	temp->step = 0;
 	while (db->line[i++] ^ ' ')
 	{
 		++name_length;
@@ -188,11 +189,18 @@ void	ft_saveroom(t_db *db)
 	temp->next_room = NULL;
 	temp->links = NULL;
 	temp->end = NULL;
-	if (db->end == 2)
+	temp->links_size = 0;
+	if (db->end == 2 && !db->check_end)
 	{
 		temp->start->end = temp; /*TEST THIS TOMORROW*/
+		temp->end = temp;
+		db->check_end = 1;
 	}
-	if (db->rooms == NULL){}
+	else if (db->end == 2 && db->check_end)
+	{
+		temp->end = temp->start->end;
+	}
+	if (db->rooms == NULL)
 	{
 		db->rooms = temp->start;
 	}

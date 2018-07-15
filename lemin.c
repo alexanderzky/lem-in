@@ -6,7 +6,7 @@
 /*   By: ozalisky <ozalisky@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/05 20:02:21 by ozalisky          #+#    #+#             */
-/*   Updated: 2018/06/14 18:16:45 by ozalisky         ###   ########.fr       */
+/*   Updated: 2018/06/15 13:06:59 by ozalisky         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -163,9 +163,11 @@ void	ft_init(t_db *db)
 	db->end = -1;
 	db->error = 0;
 	db->rooms = NULL;
-	db->links = NULL;
+//	db->links = NULL;
 	db->rooms_flag = 0;
 	db->links_flag = 0;
+	db->check_end = 0;
+	db->steps = 0;
 }
 
 int		main(void)
@@ -176,7 +178,7 @@ int		main(void)
 	db.fd = open("../maps", O_RDONLY);
 	while (!db.error && get_next_line(db.fd, &db.line) > 0)
 	{
-		if (db.line[0] == '\0')
+	if (db.line[0] == '\0')
 			break ;
 		ft_check_line(&db);
 	}

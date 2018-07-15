@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_links.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ozalisky <ozalisky@student.unit.ua>        +#+  +:+       +#+        */
+/*   By: ozalisky <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/12 21:01:21 by ozalisky          #+#    #+#             */
-/*   Updated: 2018/06/14 13:00:34 by ozalisky         ###   ########.fr       */
+/*   Updated: 2018/07/15 14:24:58 by ozalisky         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,20 @@ int		ft_islink(char *str)
 	return (0);
 }
 
+void		*ft_realloc(void *ptr, size_t newsize, size_t oldsize)
+{
+	void	*new;
+
+	new = ft_memalloc(newsize);
+	if (ptr)
+	{
+		ft_memcpy(new, ptr, oldsize);
+		free(ptr);
+	}
+	return (new);
+}
+
+
 void	ft_savelink(t_db *db)
 {
 	int i;
@@ -62,7 +76,9 @@ void	ft_savelink(t_db *db)
 	t_r *source;
 	t_r *target;
 
-	t_l *prev_link;
+//	t_l *tmp_link;
+	t_r *next_link;
+//	t_l *prev_link;
 
 	length = 0;
 	i = 0;
@@ -107,27 +123,119 @@ void	ft_savelink(t_db *db)
 		target = target->next_room;
 	}
 
+
+
 	if (target && source)
 	{
-		prev_link = source->links;
-		while (prev_link != NULL)
+		if (!target->links)
 		{
-			prev_link = prev_link->next_link;
+			target->links = (struct s_room**)malloc(sizeof(struct s_room*) * (++target->links_size));
 		}
-		prev_link = ft_memalloc(sizeof(t_l));
-//	prev_link = source->links;
+		else
+		{
+			target->links = realloc(target->links, target->links_size + 1);
+//					ft_realloc(target->links[0],
+//											target->links_size + 1,
+//											target->links_size);
+			++target->links_size;
+		}
 
-		prev_link->room = target;
-		prev_link->connected = 0;
-		prev_link->next_link = NULL;
-
-		if (source->links == NULL)
-		{
-			source->links = prev_link;
-		}
-		else if (source->links->next_link == NULL)
-		{
-			source->links->next_link = prev_link;
-		}
+		target->links[target->links_size - 1] = source;
 	}
+
+	if (target && source)
+	{
+		if (!source->links)
+		{
+			source->links = (struct s_room**)malloc(sizeof(struct s_room*) * (++source->links_size));
+		}
+		else
+		{
+//			source->links = realloc(source->links, sizeof(struct s_room*) * (source->links_size + 1));
+			source->links = ft_realloc(source->links, sizeof(struct s_room *) *
+													  (source->links_size + 1),
+									   sizeof(struct s_room *) *
+									   source->links_size);
+			++source->links_size;
+		}
+
+		source->links[source->links_size - 1] = target;
+	}
+
+
+
+
+
+//		next_link = source->links;
+//		while (next_link != NULL)
+//		{
+//			next_link = next_link->next_link;
+//		}
+//		next_link = ft_memalloc(sizeof(t_l));
+////	next_link = source->links;
+//
+//		next_link->next_room = target;
+////		next_link->connected = 0;
+//		next_link->next_link = NULL;
+//
+//		if (source->links == NULL)
+//		{
+//			source->links = next_link;
+//		}
+//		else if (source->links && source->links->next_room == NULL)
+//		{
+//			source->links->next_room = next_link->next_room;
+//		}
+//		else if (source->links->next_link == NULL)
+//		{
+//			source->links->next_link = next_link;
+//		}
+//		else if (source->links->next_link != NULL)
+//		{
+//			tmp_link = source->links->next_link;
+//			while (tmp_link->next_link != NULL)
+//			{
+//				tmp_link = tmp_link->next_link;
+//			}
+//			tmp_link->next_link = next_link;
+////			source->links->next_link = next_link;
+//		}
+//	}
+//	if (target && source)
+//	{
+//		prev_link = target->links;
+//		while (prev_link != NULL)
+//		{
+//			prev_link = prev_link->prev_link;
+//		}
+//		prev_link = ft_memalloc(sizeof(t_l));
+////	next_link = source->links;
+//
+//		prev_link->prev_room = source;
+////		prev_link->connected = 0;
+//		prev_link->prev_link = NULL;
+//
+//		if (target->links == NULL)
+//		{
+//			target->links = prev_link;
+//		}
+//		else if (target->links && target->links->prev_room == NULL)
+//		{
+//			target->links->prev_room = prev_link->prev_room;
+//		}
+//		else if (target->links->prev_link == NULL)
+//		{
+//			target->links->prev_link = prev_link;
+//		}
+//		else if (source->links->next_link != NULL)
+//		{
+//			tmp_link = source->links->prev_link;
+//			while (tmp_link->prev_link != NULL)
+//			{
+//				tmp_link = tmp_link->prev_link;
+//			}
+//			tmp_link->prev_link = prev_link;
+////			source->links->next_link = next_link;
+//		}
+//	}
 }

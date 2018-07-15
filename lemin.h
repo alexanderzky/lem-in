@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   lemin.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ozalisky <ozalisky@student.unit.ua>        +#+  +:+       +#+        */
+/*   By: ozalisky <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/05 20:02:14 by ozalisky          #+#    #+#             */
-/*   Updated: 2018/06/14 18:16:45 by ozalisky         ###   ########.fr       */
+/*   Updated: 2018/07/15 14:22:50 by ozalisky         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,20 +27,24 @@ typedef struct		s_room
 	int				position;
 	struct s_room	*next_room;
 	struct s_room	*prev_room;
-	struct s_link	*links;
+	struct s_room	**links;
 	struct s_room	*start;
 	struct s_room	*end;
-	int				steps;
+	int				step;
+	size_t			links_size;
+	int				connected;
 }					t_r;
 
-typedef struct		s_link
-{
-//	t_r				*previous_room;
-	struct s_link	*next_link;
-	struct s_room	*room;
-
-	int				connected;
-}					t_l;
+//typedef struct		s_link
+//{
+////	t_r				*previous_room;
+//	struct s_link	*next_link;
+//	struct s_link	*prev_link;
+//	struct s_room	*next_room;
+//	struct s_room	*prev_room;
+//
+//
+//}					t_l;
 
 typedef struct		s_db
 {
@@ -58,12 +62,14 @@ typedef struct		s_db
 
 	t_r				*rooms;
 
-	t_l				*links;
+//	t_l				*links;
 
-
+	int				check_end;
 	int				ants_flag;
 	int				rooms_flag;
 	int				links_flag;
+
+	int 			steps;
 }					t_db;
 int					ft_islink(char *str);
 void				ft_savelink(t_db *db);
@@ -72,4 +78,6 @@ void				ft_saveroom(t_db *db);
 void				ft_check_rooms(t_db *db);
 void				ft_check_links(t_db *db);
 void				ft_operate(t_db *db);
+
+void		*ft_realloc(void *ptr, size_t newsize, size_t oldsize);
 #endif
