@@ -6,7 +6,7 @@
 /*   By: ozalisky <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/12 21:01:21 by ozalisky          #+#    #+#             */
-/*   Updated: 2018/07/15 14:24:58 by ozalisky         ###   ########.fr       */
+/*   Updated: 2018/08/05 12:53:12 by ozalisky         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -141,6 +141,7 @@ void	ft_savelink(t_db *db)
 		}
 
 		target->links[target->links_size - 1] = source;
+//		target->links[target->links_size] = NULL;  под вопросом без нала падает в поиске путей с налом не видит линков
 	}
 
 	if (target && source)
@@ -160,6 +161,7 @@ void	ft_savelink(t_db *db)
 		}
 
 		source->links[source->links_size - 1] = target;
+//		source->links[source->links_size] = NULL;
 	}
 
 

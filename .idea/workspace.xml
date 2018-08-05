@@ -12,19 +12,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a1b81bd8-8e1e-4619-a64d-740dc02bd6d8" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/lem_in.dir/ft_links.c.o" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/lem_in.dir/ft_links.c.o" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/lem_in.dir/ft_paths.c.o" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/lem_in.dir/ft_paths.c.o" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/lem_in.dir/ft_rooms.c.o" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/lem_in.dir/ft_rooms.c.o" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/lem_in.dir/lemin.c.o" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/lem_in.dir/lemin.c.o" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/lem_in" afterPath="$PROJECT_DIR$/cmake-build-debug/lem_in" />
-      <change beforePath="$PROJECT_DIR$/ft_links.c" afterPath="$PROJECT_DIR$/ft_links.c" />
       <change beforePath="$PROJECT_DIR$/ft_paths.c" afterPath="$PROJECT_DIR$/ft_paths.c" />
-      <change beforePath="$PROJECT_DIR$/ft_rooms.c" afterPath="$PROJECT_DIR$/ft_rooms.c" />
-      <change beforePath="$PROJECT_DIR$/lemin.c" afterPath="$PROJECT_DIR$/lemin.c" />
-      <change beforePath="$PROJECT_DIR$/lemin.h" afterPath="$PROJECT_DIR$/lemin.h" />
-      <change beforePath="$PROJECT_DIR$/maps" afterPath="$PROJECT_DIR$/maps" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -40,15 +29,17 @@
       <split-first>
         <splitter split-orientation="horizontal" split-proportion="0.68854284">
           <split-first>
-            <splitter split-orientation="horizontal" split-proportion="0.41713825">
+            <splitter split-orientation="horizontal" split-proportion="0.7615198">
               <split-first>
                 <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
                   <file leaf-file-name="ft_paths.c" pinned="false" current-in-tab="true">
                     <entry file="file://$PROJECT_DIR$/ft_paths.c">
                       <provider selected="true" editor-type-id="text-editor">
-                        <state relative-caret-position="526">
-                          <caret line="98" column="0" lean-forward="false" selection-start-line="98" selection-start-column="0" selection-end-line="98" selection-end-column="0" />
-                          <folding />
+                        <state relative-caret-position="861">
+                          <caret line="134" column="0" lean-forward="false" selection-start-line="134" selection-start-column="0" selection-end-line="134" selection-end-column="0" />
+                          <folding>
+                            <marker date="1533462089000" expanded="true" signature="2614:3307" ph="..." />
+                          </folding>
                         </state>
                       </provider>
                     </entry>
@@ -66,8 +57,8 @@
                   <file leaf-file-name="lemin.c" pinned="false" current-in-tab="false">
                     <entry file="file://$PROJECT_DIR$/lemin.c">
                       <provider selected="true" editor-type-id="text-editor">
-                        <state relative-caret-position="87">
-                          <caret line="36" column="0" lean-forward="false" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+                        <state relative-caret-position="1216">
+                          <caret line="189" column="0" lean-forward="false" selection-start-line="189" selection-start-column="0" selection-end-line="189" selection-end-column="0" />
                           <folding>
                             <element signature="e#892#919#0" expanded="true" />
                           </folding>
@@ -82,7 +73,7 @@
                   <file leaf-file-name="ft_links.c" pinned="false" current-in-tab="true">
                     <entry file="file://$PROJECT_DIR$/ft_links.c">
                       <provider selected="true" editor-type-id="text-editor">
-                        <state relative-caret-position="288">
+                        <state relative-caret-position="1088">
                           <caret line="178" column="0" lean-forward="false" selection-start-line="178" selection-start-column="0" selection-end-line="178" selection-end-column="0" />
                           <folding />
                         </state>
@@ -118,8 +109,8 @@
               <file leaf-file-name="ft_rooms.c" pinned="false" current-in-tab="true">
                 <entry file="file://$PROJECT_DIR$/ft_rooms.c">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="414">
-                      <caret line="191" column="25" lean-forward="false" selection-start-line="191" selection-start-column="25" selection-end-line="191" selection-end-column="25" />
+                    <state relative-caret-position="476">
+                      <caret line="157" column="16" lean-forward="true" selection-start-line="157" selection-start-column="16" selection-end-line="157" selection-end-column="16" />
                       <folding />
                     </state>
                   </provider>
@@ -156,7 +147,7 @@
               <file leaf-file-name="lemin.h" pinned="false" current-in-tab="true">
                 <entry file="file://$PROJECT_DIR$/lemin.h">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="301">
+                    <state relative-caret-position="1209">
                       <caret line="81" column="28" lean-forward="false" selection-start-line="81" selection-start-column="28" selection-end-line="81" selection-end-column="28" />
                       <folding />
                     </state>
@@ -180,7 +171,7 @@
               <file leaf-file-name="maps" pinned="false" current-in-tab="true">
                 <entry file="file://$PROJECT_DIR$/maps">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="197">
+                    <state relative-caret-position="252">
                       <caret line="14" column="3" lean-forward="false" selection-start-line="14" selection-start-column="3" selection-end-line="14" selection-end-column="3" />
                       <folding />
                     </state>
@@ -213,10 +204,10 @@
         <option value="$PROJECT_DIR$/libft/ft_strlen.c" />
         <option value="$PROJECT_DIR$/maps" />
         <option value="$PROJECT_DIR$/lemin.c" />
-        <option value="$PROJECT_DIR$/ft_paths.c" />
         <option value="$PROJECT_DIR$/ft_rooms.c" />
         <option value="$PROJECT_DIR$/lemin.h" />
         <option value="$PROJECT_DIR$/ft_links.c" />
+        <option value="$PROJECT_DIR$/ft_paths.c" />
       </list>
     </option>
   </component>
@@ -335,20 +326,21 @@
       <workItem from="1531549342573" duration="744000" />
       <workItem from="1531552811271" duration="338000" />
       <workItem from="1531559475366" duration="5541000" />
-      <workItem from="1531651611994" duration="2631000" />
+      <workItem from="1531651611994" duration="2756000" />
+      <workItem from="1532253314414" duration="872000" />
+      <workItem from="1533459193515" duration="1417000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="142976000" />
+    <option name="totallyTimeSpent" value="145390000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="2560" height="1440" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.097282395" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4023409" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14411119" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28310168" sideWeight="0.5013785" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32991952" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -356,7 +348,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24970461" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1492319" sideWeight="0.4986215" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="true" show_stripe_button="true" weight="0.39941478" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="697" y="258" width="1069" height="1063" />
+      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="true" show_stripe_button="true" weight="0.39941478" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="1220" y="72" width="1069" height="1063" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -377,7 +369,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/ft_paths.c</url>
-          <line>98</line>
+          <line>134</line>
           <option name="timeStamp" value="44" />
         </line-breakpoint>
       </breakpoints>
@@ -756,16 +748,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/maps">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="197">
+        <state relative-caret-position="252">
           <caret line="14" column="3" lean-forward="false" selection-start-line="14" selection-start-column="3" selection-end-line="14" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ft_rooms.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="191" column="25" lean-forward="false" selection-start-line="191" selection-start-column="25" selection-end-line="191" selection-end-column="25" />
           <folding />
         </state>
       </provider>
@@ -788,16 +772,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lemin.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="301">
+        <state relative-caret-position="1209">
           <caret line="81" column="28" lean-forward="false" selection-start-line="81" selection-start-column="28" selection-end-line="81" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ft_links.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1088">
+          <caret line="178" column="0" lean-forward="false" selection-start-line="178" selection-start-column="0" selection-end-line="178" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ft_rooms.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="157" column="16" lean-forward="true" selection-start-line="157" selection-start-column="16" selection-end-line="157" selection-end-column="16" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lemin.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="87">
-          <caret line="36" column="0" lean-forward="false" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+        <state relative-caret-position="1216">
+          <caret line="189" column="0" lean-forward="false" selection-start-line="189" selection-start-column="0" selection-end-line="189" selection-end-column="0" />
           <folding>
             <element signature="e#892#919#0" expanded="true" />
           </folding>
@@ -806,17 +806,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ft_paths.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="526">
-          <caret line="98" column="0" lean-forward="false" selection-start-line="98" selection-start-column="0" selection-end-line="98" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ft_links.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="178" column="0" lean-forward="false" selection-start-line="178" selection-start-column="0" selection-end-line="178" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="861">
+          <caret line="134" column="0" lean-forward="false" selection-start-line="134" selection-start-column="0" selection-end-line="134" selection-end-column="0" />
+          <folding>
+            <marker date="1533462089000" expanded="true" signature="2614:3307" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
