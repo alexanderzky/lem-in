@@ -6,7 +6,7 @@
 /*   By: ozalisky <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/12 21:01:21 by ozalisky          #+#    #+#             */
-/*   Updated: 2018/08/05 12:53:12 by ozalisky         ###   ########.fr       */
+/*   Updated: 2018/08/18 18:56:12 by ozalisky         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ void		*ft_realloc(void *ptr, size_t newsize, size_t oldsize)
 	void	*new;
 
 	new = ft_memalloc(newsize);
+	ft_bzero(new, sizeof(struct s_room));
 	if (ptr)
 	{
 		ft_memcpy(new, ptr, oldsize);
@@ -77,7 +78,7 @@ void	ft_savelink(t_db *db)
 	t_r *target;
 
 //	t_l *tmp_link;
-	t_r *next_link;
+//	t_r *next_link;
 //	t_l *prev_link;
 
 	length = 0;
@@ -118,7 +119,7 @@ void	ft_savelink(t_db *db)
 	}
 
 	target = db->rooms->start;
-	while (target && ft_strcmp(target_name, target->name))
+	while (target != NULL && ft_strcmp(target_name, target->name))
 	{
 		target = target->next_room;
 	}
@@ -130,17 +131,23 @@ void	ft_savelink(t_db *db)
 		if (!target->links)
 		{
 			target->links = (struct s_room**)malloc(sizeof(struct s_room*) * (++target->links_size));
+			ft_bzero(target->links, sizeof(struct s_room));
 		}
 		else
 		{
-			target->links = realloc(target->links, target->links_size + 1);
-//					ft_realloc(target->links[0],
+//			target->links = realloc(target->links, target->links_size + 1);
+//			target->links = ft_realloc(target->links[0],
 //											target->links_size + 1,
 //											target->links_size);
+			target->links = ft_realloc(target->links, sizeof(struct s_room *) *
+													  (target->links_size + 1),
+									   sizeof(struct s_room *) *
+											   target->links_size);
 			++target->links_size;
 		}
 
 		target->links[target->links_size - 1] = source;
+		db->tempSize = sizeof(target->links);
 //		target->links[target->links_size] = NULL;  под вопросом без нала падает в поиске путей с налом не видит линков
 	}
 
@@ -149,6 +156,7 @@ void	ft_savelink(t_db *db)
 		if (!source->links)
 		{
 			source->links = (struct s_room**)malloc(sizeof(struct s_room*) * (++source->links_size));
+			ft_bzero(source->links, sizeof(struct s_room));
 		}
 		else
 		{
@@ -161,83 +169,8 @@ void	ft_savelink(t_db *db)
 		}
 
 		source->links[source->links_size - 1] = target;
+		db->tempSize = sizeof(source->links);
+
 //		source->links[source->links_size] = NULL;
 	}
-
-
-
-
-
-//		next_link = source->links;
-//		while (next_link != NULL)
-//		{
-//			next_link = next_link->next_link;
-//		}
-//		next_link = ft_memalloc(sizeof(t_l));
-////	next_link = source->links;
-//
-//		next_link->next_room = target;
-////		next_link->connected = 0;
-//		next_link->next_link = NULL;
-//
-//		if (source->links == NULL)
-//		{
-//			source->links = next_link;
-//		}
-//		else if (source->links && source->links->next_room == NULL)
-//		{
-//			source->links->next_room = next_link->next_room;
-//		}
-//		else if (source->links->next_link == NULL)
-//		{
-//			source->links->next_link = next_link;
-//		}
-//		else if (source->links->next_link != NULL)
-//		{
-//			tmp_link = source->links->next_link;
-//			while (tmp_link->next_link != NULL)
-//			{
-//				tmp_link = tmp_link->next_link;
-//			}
-//			tmp_link->next_link = next_link;
-////			source->links->next_link = next_link;
-//		}
-//	}
-//	if (target && source)
-//	{
-//		prev_link = target->links;
-//		while (prev_link != NULL)
-//		{
-//			prev_link = prev_link->prev_link;
-//		}
-//		prev_link = ft_memalloc(sizeof(t_l));
-////	next_link = source->links;
-//
-//		prev_link->prev_room = source;
-////		prev_link->connected = 0;
-//		prev_link->prev_link = NULL;
-//
-//		if (target->links == NULL)
-//		{
-//			target->links = prev_link;
-//		}
-//		else if (target->links && target->links->prev_room == NULL)
-//		{
-//			target->links->prev_room = prev_link->prev_room;
-//		}
-//		else if (target->links->prev_link == NULL)
-//		{
-//			target->links->prev_link = prev_link;
-//		}
-//		else if (source->links->next_link != NULL)
-//		{
-//			tmp_link = source->links->prev_link;
-//			while (tmp_link->prev_link != NULL)
-//			{
-//				tmp_link = tmp_link->prev_link;
-//			}
-//			tmp_link->prev_link = prev_link;
-////			source->links->next_link = next_link;
-//		}
-//	}
 }

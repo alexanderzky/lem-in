@@ -70,6 +70,9 @@ typedef struct		s_db
 	int				links_flag;
 
 	int 			steps;
+
+
+	int tempSize;
 }					t_db;
 int					ft_islink(char *str);
 void				ft_savelink(t_db *db);
