@@ -6,7 +6,7 @@
 /*   By: ozalisky <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/12 21:01:21 by ozalisky          #+#    #+#             */
-/*   Updated: 2018/08/18 18:56:12 by ozalisky         ###   ########.fr       */
+/*   Updated: 2018/10/04 19:40:21 by ozalisky         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,10 @@ void		*ft_realloc(void *ptr, size_t newsize, size_t oldsize)
 	return (new);
 }
 
+void	ft_countlink(t_db *db)
+{
+
+}
 
 void	ft_savelink(t_db *db)
 {
@@ -86,7 +90,7 @@ void	ft_savelink(t_db *db)
 	j = 0;
 
 
-
+	//find source room name
 	while (db->line[i++] ^ '-')
 	{
 		++length;
@@ -103,6 +107,9 @@ void	ft_savelink(t_db *db)
 	{
 		++length;
 	}
+
+
+	//find target room name
 	i = i - length;
 	target_name = ft_memalloc(sizeof(char*) * (length + 1));
 	j = 0;
@@ -112,20 +119,32 @@ void	ft_savelink(t_db *db)
 	}
 	target_name[j] = '\0';
 
+	//find source room
 	source = db->rooms->start;
 	while (source && ft_strcmp(source_name, source->name))
 	{
 		source = source->next_room;
 	}
-
+	//change links size to know how much memory to malloc
+	if (ft_strcmp(source_name, source->name))
+	{
+		++source->links_size;
+	}
+	//find target room
 	target = db->rooms->start;
 	while (target != NULL && ft_strcmp(target_name, target->name))
 	{
 		target = target->next_room;
 	}
+	//change links size to know how much memory to malloc
+	if (ft_strcmp(target_name, target->name))
+	{
+		++target->links_size;
+	}
 
 
 
+	//delete remallock part
 	if (target && source)
 	{
 		if (!target->links)

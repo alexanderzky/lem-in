@@ -178,7 +178,7 @@ int		main(void)
 	db.fd = open("../maps", O_RDONLY);
 	while (!db.error && get_next_line(db.fd, &db.line) > 0)
 	{
-	if (db.line[0] == '\0')
+		if (db.line[0] == '\0')
 			break ;
 		ft_check_line(&db);
 	}
