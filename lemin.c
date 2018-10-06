@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   lemin.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ozalisky <ozalisky@student.unit.ua>        +#+  +:+       +#+        */
+/*   By: ozalisky <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/05 20:02:21 by ozalisky          #+#    #+#             */
-/*   Updated: 2018/06/15 13:06:59 by ozalisky         ###   ########.fr       */
+/*   Updated: 2018/10/05 21:32:16 by ozalisky         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -142,7 +142,7 @@ void	ft_check_line(t_db *db)
 	}
 	else if (ft_islink(db->line) && db->ants_flag && db->rooms_flag)
 	{
-		ft_savelink(db);
+		ft_count_room_mentions(db);
 		db->links_flag = 1;
 	}
 	else if (db->line[0] ^ '#' || (!ft_strcmp("##start",db->line) && db->start > 0) ||
@@ -183,7 +183,18 @@ int		main(void)
 		ft_check_line(&db);
 	}
 	free(db.line);
+	close(db.fd);
 	ft_validate(&db);
+	db.fd = open("../maps", O_RDONLY);
+	while (!db.error && get_next_line(db.fd, &db.line) > 0)
+	{
+		if (db.line[0] == '\0')
+			break ;
+		if(ft_islink(db.line))
+		{
+			ft_link_rooms(&db);
+		}
+	}
 	ft_operate(&db);
 	ft_printf("%s",db.map);
 	close(db.fd);

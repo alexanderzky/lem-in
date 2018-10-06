@@ -6,7 +6,7 @@
 /*   By: ozalisky <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/12 21:01:21 by ozalisky          #+#    #+#             */
-/*   Updated: 2018/10/04 19:40:21 by ozalisky         ###   ########.fr       */
+/*   Updated: 2018/10/06 17:17:29 by ozalisky         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,11 @@
 void	ft_check_links(t_db *db)
 {
 	if (db->end ^ 2 || db->start ^ 2)
+	{
+		ft_printf("ERROR\n");
+		exit(0);
+	}
+	if (db->rooms->start->links_size == 0 || db->rooms->end->links_size == 0)
 	{
 		ft_printf("ERROR\n");
 		exit(0);
@@ -52,26 +57,7 @@ int		ft_islink(char *str)
 	return (0);
 }
 
-void		*ft_realloc(void *ptr, size_t newsize, size_t oldsize)
-{
-	void	*new;
-
-	new = ft_memalloc(newsize);
-	ft_bzero(new, sizeof(struct s_room));
-	if (ptr)
-	{
-		ft_memcpy(new, ptr, oldsize);
-		free(ptr);
-	}
-	return (new);
-}
-
-void	ft_countlink(t_db *db)
-{
-
-}
-
-void	ft_savelink(t_db *db)
+void	ft_count_room_mentions(t_db *db)
 {
 	int i;
 	int j;
@@ -126,7 +112,7 @@ void	ft_savelink(t_db *db)
 		source = source->next_room;
 	}
 	//change links size to know how much memory to malloc
-	if (ft_strcmp(source_name, source->name))
+	if (!ft_strcmp(source_name, source->name))
 	{
 		++source->links_size;
 	}
@@ -137,59 +123,89 @@ void	ft_savelink(t_db *db)
 		target = target->next_room;
 	}
 	//change links size to know how much memory to malloc
-	if (ft_strcmp(target_name, target->name))
+	if (!ft_strcmp(target_name, target->name))
 	{
 		++target->links_size;
 	}
+}
 
+void	ft_link_rooms(t_db *db)
+{
+	int i;
+	int j;
+	int length;
+	char *source_name;
+	char *target_name;
+	t_r *source;
+	t_r *target;
 
+	length = 0;
+	i = 0;
+	j = 0;
 
-	//delete remallock part
-	if (target && source)
+	while (db->line[i++] ^ '-')
 	{
-		if (!target->links)
-		{
-			target->links = (struct s_room**)malloc(sizeof(struct s_room*) * (++target->links_size));
-			ft_bzero(target->links, sizeof(struct s_room));
-		}
-		else
-		{
-//			target->links = realloc(target->links, target->links_size + 1);
-//			target->links = ft_realloc(target->links[0],
-//											target->links_size + 1,
-//											target->links_size);
-			target->links = ft_realloc(target->links, sizeof(struct s_room *) *
-													  (target->links_size + 1),
-									   sizeof(struct s_room *) *
-											   target->links_size);
-			++target->links_size;
-		}
+		++length;
+	}
+	source_name = malloc(sizeof(char*) * (length + 1));
+	i = 0;
+	while (j < length)
+	{
+		source_name[j++] = db->line[i++];
+	}
+	source_name[j] = '\0';
+	length = 0;
+	while (++i < ft_strlen(db->line))
+	{
+		++length;
+	}
 
-		target->links[target->links_size - 1] = source;
-		db->tempSize = sizeof(target->links);
-//		target->links[target->links_size] = NULL;  под вопросом без нала падает в поиске путей с налом не видит линков
+	//find target room name
+	i = i - length;
+	target_name = malloc(sizeof(char*) * (length + 1));
+	j = 0;
+	while (j < length)
+	{
+		target_name[j++] = db->line[i++];
+	}
+	target_name[j] = '\0';
+
+	//find source room
+	source = db->rooms->start;
+	while (source && ft_strcmp(source_name, source->name))
+	{
+		source = source->next_room;
+	}
+	//find target room
+	target = db->rooms->start;
+	while (target != NULL && ft_strcmp(target_name, target->name))
+	{
+		target = target->next_room;
 	}
 
 	if (target && source)
 	{
 		if (!source->links)
 		{
-			source->links = (struct s_room**)malloc(sizeof(struct s_room*) * (++source->links_size));
+			source->links = malloc(sizeof(struct s_room) *
+													(source->links_size));
 			ft_bzero(source->links, sizeof(struct s_room));
 		}
-		else
+
+		source->links[source->link_slot++] = target;
+	}
+
+	if (target && source)
+	{
+		if (!target->links)
 		{
-//			source->links = realloc(source->links, sizeof(struct s_room*) * (source->links_size + 1));
-			source->links = ft_realloc(source->links, sizeof(struct s_room *) *
-													  (source->links_size + 1),
-									   sizeof(struct s_room *) *
-									   source->links_size);
-			++source->links_size;
+			target->links = malloc(sizeof(struct s_room) *
+					(target->links_size));
+			ft_bzero(target->links, sizeof(struct s_room));
 		}
 
-		source->links[source->links_size - 1] = target;
-		db->tempSize = sizeof(source->links);
-
-//		source->links[source->links_size] = NULL;
+		target->links[target->link_slot++] = source;
 	}
+
+
 }

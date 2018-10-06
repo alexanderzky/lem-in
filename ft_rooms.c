@@ -6,7 +6,7 @@
 /*   By: ozalisky <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/12 21:02:54 by ozalisky          #+#    #+#             */
-/*   Updated: 2018/07/01 12:58:01 by ozalisky         ###   ########.fr       */
+/*   Updated: 2018/10/06 16:51:14 by ozalisky         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -190,6 +190,7 @@ void	ft_saveroom(t_db *db)
 	temp->links = NULL;
 	temp->end = NULL;
 	temp->links_size = 0;
+	temp->link_slot = 0;
 	if (db->end == 2 && !db->check_end)
 	{
 		temp->start->end = temp; /*TEST THIS TOMORROW*/

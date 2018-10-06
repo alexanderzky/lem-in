@@ -6,7 +6,7 @@
 /*   By: ozalisky <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/14 18:15:39 by ozalisky          #+#    #+#             */
-/*   Updated: 2018/08/05 12:48:16 by ozalisky         ###   ########.fr       */
+/*   Updated: 2018/10/06 19:48:39 by ozalisky         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,8 +115,8 @@ void			search_ways(t_r *tmpry, t_db *db)
 	i_links = 0;
 	while (tmpry->links && (tmpry->links)[i_links])
 	{
-		while ((tmpry->links)[i_links] && (((tmpry->links)[i_links])->connected ||
-										   ((tmpry->links)[i_links])->step <= db->steps + 1))
+		while ((tmpry->links)[i_links] && (((tmpry->links)[i_links])->connected
+			|| ((tmpry->links)[i_links])->step <= db->steps + 1))
 			++i_links;
 		if (!((tmpry->links)[i_links]))
 			break ;
@@ -130,11 +130,15 @@ void	ft_operate(t_db *db)
 {
 	t_r *temp;
 	int flag;
+	int go = 0;
 
 	flag = 1;
 	temp = db->rooms->end;
 
 	search_ways(db->rooms->end, db);
+
+
+
 
 
 //	while (flag)

@@ -6,7 +6,7 @@
 /*   By: ozalisky <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/05 20:02:14 by ozalisky          #+#    #+#             */
-/*   Updated: 2018/07/15 14:22:50 by ozalisky         ###   ########.fr       */
+/*   Updated: 2018/10/06 17:07:22 by ozalisky         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ typedef struct		s_room
 	struct s_room	*end;
 	int				step;
 	size_t			links_size;
+	size_t			link_slot;
 	int				connected;
 }					t_r;
 
@@ -72,15 +73,15 @@ typedef struct		s_db
 	int 			steps;
 
 
-	int tempSize;
+//	int tempSize;
 }					t_db;
 int					ft_islink(char *str);
-void				ft_savelink(t_db *db);
+void				ft_count_room_mentions(t_db *db);
 int					ft_isroom(char *str);
 void				ft_saveroom(t_db *db);
 void				ft_check_rooms(t_db *db);
 void				ft_check_links(t_db *db);
 void				ft_operate(t_db *db);
-
-void		*ft_realloc(void *ptr, size_t newsize, size_t oldsize);
+void				ft_link_rooms(t_db *db);
+//void		*ft_realloc(void *ptr, size_t newsize, size_t oldsize);
 #endif
