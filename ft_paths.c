@@ -6,7 +6,7 @@
 /*   By: ozalisky <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/14 18:15:39 by ozalisky          #+#    #+#             */
-/*   Updated: 2018/10/06 19:48:39 by ozalisky         ###   ########.fr       */
+/*   Updated: 2018/10/07 19:26:08 by ozalisky         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,14 +93,15 @@
 static void		ft_rollback(t_r *tmpry, t_db *db)
 {
 	tmpry->connected = 0;
-	--db->steps; //--g_steps;
+	if(db->steps)
+		--db->steps; //--g_steps;
 }
 
 void			search_ways(t_r *tmpry, t_db *db)
 {
 	int		i_links;
 
-	if (tmpry->position != -1)
+	if (tmpry->position)
 	{
 		++db->steps; //		++g_steps;
 
@@ -115,12 +116,16 @@ void			search_ways(t_r *tmpry, t_db *db)
 	i_links = 0;
 	while (tmpry->links && (tmpry->links)[i_links])
 	{
-		while ((tmpry->links)[i_links] && (((tmpry->links)[i_links])->connected
-			|| ((tmpry->links)[i_links])->step <= db->steps + 1))
+		while ((tmpry->links)[i_links] && (!(((tmpry->links)[i_links])->connected)
+			|| (((tmpry->links)[i_links])->step >= db->steps + 1)))
+		{
+			search_ways((tmpry->links)[i_links], db);
 			++i_links;
+		}
+
 		if (!((tmpry->links)[i_links]))
 			break ;
-		search_ways((tmpry->links)[i_links], db);
+//		search_ways((tmpry->links)[i_links], db);
 		++i_links;
 	}
 	ft_rollback(tmpry, db);
@@ -128,12 +133,12 @@ void			search_ways(t_r *tmpry, t_db *db)
 
 void	ft_operate(t_db *db)
 {
-	t_r *temp;
-	int flag;
-	int go = 0;
-
-	flag = 1;
-	temp = db->rooms->end;
+//	t_r *temp;
+//	int flag;
+//	int go = 0;
+//
+//	flag = 1;
+//	temp = db->rooms->end;
 
 	search_ways(db->rooms->end, db);
 

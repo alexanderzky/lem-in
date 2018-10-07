@@ -196,6 +196,7 @@ int		main(void)
 		}
 	}
 	ft_operate(&db);
+//	ft_move_ants(&db);
 	ft_printf("%s",db.map);
 	close(db.fd);
 	exit(0);

@@ -6,7 +6,7 @@
 /*   By: ozalisky <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/12 21:02:54 by ozalisky          #+#    #+#             */
-/*   Updated: 2018/10/06 16:51:14 by ozalisky         ###   ########.fr       */
+/*   Updated: 2018/10/07 18:05:57 by ozalisky         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -163,11 +163,11 @@ void	ft_saveroom(t_db *db)
 	}
 	else if (db->end == 1)
 	{
-		temp->position = -1;
+		temp->position = 0;
 		db->end = 2;
 	}
 	else
-		temp->position = 0;
+		temp->position = -1;
 	if (!prev)
 	{
 		temp->start = temp;
@@ -191,6 +191,7 @@ void	ft_saveroom(t_db *db)
 	temp->end = NULL;
 	temp->links_size = 0;
 	temp->link_slot = 0;
+	temp->connected = 0;
 	if (db->end == 2 && !db->check_end)
 	{
 		temp->start->end = temp; /*TEST THIS TOMORROW*/

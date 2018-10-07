@@ -6,7 +6,7 @@
 /*   By: ozalisky <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/05 20:02:14 by ozalisky          #+#    #+#             */
-/*   Updated: 2018/10/06 17:07:22 by ozalisky         ###   ########.fr       */
+/*   Updated: 2018/10/07 18:05:57 by ozalisky         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,16 +24,16 @@ typedef struct		s_room
 	char			*name;
 	int				x;
 	int				y;
-	int				position;
+	int				position; //1 start, 0 end, -1 else
+	int				step;
+	int				connected;
+	size_t			links_size;
+	size_t			link_slot;
 	struct s_room	*next_room;
 	struct s_room	*prev_room;
 	struct s_room	**links;
 	struct s_room	*start;
 	struct s_room	*end;
-	int				step;
-	size_t			links_size;
-	size_t			link_slot;
-	int				connected;
 }					t_r;
 
 //typedef struct		s_link
