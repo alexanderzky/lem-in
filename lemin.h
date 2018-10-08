@@ -6,7 +6,7 @@
 /*   By: ozalisky <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/05 20:02:14 by ozalisky          #+#    #+#             */
-/*   Updated: 2018/10/07 18:05:57 by ozalisky         ###   ########.fr       */
+/*   Updated: 2018/10/08 19:36:44 by ozalisky         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,9 @@ typedef struct		s_room
 	int				position; //1 start, 0 end, -1 else
 	int				step;
 	int				connected;
+	int 			is_vaccant;
+	int 			ant_name;
+	size_t 			finished_ants;
 	size_t			links_size;
 	size_t			link_slot;
 	struct s_room	*next_room;
@@ -36,17 +39,6 @@ typedef struct		s_room
 	struct s_room	*end;
 }					t_r;
 
-//typedef struct		s_link
-//{
-////	t_r				*previous_room;
-//	struct s_link	*next_link;
-//	struct s_link	*prev_link;
-//	struct s_room	*next_room;
-//	struct s_room	*prev_room;
-//
-//
-//}					t_l;
-
 typedef struct		s_db
 {
 	int				fd;//delete after all is done!
@@ -54,7 +46,8 @@ typedef struct		s_db
 
 	char			*map;
 
-	int				ants;
+	size_t			ants;
+	size_t 			moved_ants;
 
 	int				start;
 	int				end;
@@ -71,7 +64,7 @@ typedef struct		s_db
 	int				links_flag;
 
 	int 			steps;
-
+	int 			ant_name_counter;
 
 //	int tempSize;
 }					t_db;
@@ -83,5 +76,6 @@ void				ft_check_rooms(t_db *db);
 void				ft_check_links(t_db *db);
 void				ft_operate(t_db *db);
 void				ft_link_rooms(t_db *db);
+void				ft_ants(t_db *db);
 //void		*ft_realloc(void *ptr, size_t newsize, size_t oldsize);
 #endif

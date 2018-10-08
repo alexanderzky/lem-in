@@ -123,6 +123,33 @@ lem_in/fast:
 	$(MAKE) -f CMakeFiles/lem_in.dir/build.make CMakeFiles/lem_in.dir/build
 .PHONY : lem_in/fast
 
+ft_ants.o: ft_ants.c.o
+
+.PHONY : ft_ants.o
+
+# target to build an object file
+ft_ants.c.o:
+	$(MAKE) -f CMakeFiles/lem_in.dir/build.make CMakeFiles/lem_in.dir/ft_ants.c.o
+.PHONY : ft_ants.c.o
+
+ft_ants.i: ft_ants.c.i
+
+.PHONY : ft_ants.i
+
+# target to preprocess a source file
+ft_ants.c.i:
+	$(MAKE) -f CMakeFiles/lem_in.dir/build.make CMakeFiles/lem_in.dir/ft_ants.c.i
+.PHONY : ft_ants.c.i
+
+ft_ants.s: ft_ants.c.s
+
+.PHONY : ft_ants.s
+
+# target to generate assembly for a file
+ft_ants.c.s:
+	$(MAKE) -f CMakeFiles/lem_in.dir/build.make CMakeFiles/lem_in.dir/ft_ants.c.s
+.PHONY : ft_ants.c.s
+
 ft_links.o: ft_links.c.o
 
 .PHONY : ft_links.o
@@ -2940,6 +2967,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... lem_in"
+	@echo "... ft_ants.o"
+	@echo "... ft_ants.i"
+	@echo "... ft_ants.s"
 	@echo "... ft_links.o"
 	@echo "... ft_links.i"
 	@echo "... ft_links.s"

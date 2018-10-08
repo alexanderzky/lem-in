@@ -6,7 +6,7 @@
 /*   By: ozalisky <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/05 20:02:21 by ozalisky          #+#    #+#             */
-/*   Updated: 2018/10/05 21:32:16 by ozalisky         ###   ########.fr       */
+/*   Updated: 2018/10/08 19:26:53 by ozalisky         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 void	ft_validate(t_db *db)
 {
-	if (db->ants < 1)
+	if (db->ants < 1 || db->ants > 2147483647)
 	{
 		ft_printf("ERROR\n");
 		exit(0);
@@ -123,6 +123,7 @@ void	ft_check_line(t_db *db)
 	if (db->ants < 1 && ft_isnumber(db->line) && !db->rooms_flag && !db->links_flag)
 	{
 		db->ants = ft_atoi(db->line);
+		db->moved_ants = db->ants;
 		db->ants_flag = 1;
 	}
 	else if (ft_strncmp("##s",db->line,3) == 0 && db->start == -1)
@@ -168,6 +169,7 @@ void	ft_init(t_db *db)
 	db->links_flag = 0;
 	db->check_end = 0;
 	db->steps = 0;
+	db->ant_name_counter =1;
 }
 
 int		main(void)
@@ -196,8 +198,8 @@ int		main(void)
 		}
 	}
 	ft_operate(&db);
-//	ft_move_ants(&db);
-	ft_printf("%s",db.map);
+	ft_ants(&db);
+//	ft_printf("%s",db.map);
 	close(db.fd);
 	exit(0);
 }
