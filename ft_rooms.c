@@ -6,7 +6,7 @@
 /*   By: ozalisky <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/12 21:02:54 by ozalisky          #+#    #+#             */
-/*   Updated: 2018/10/08 19:36:44 by ozalisky         ###   ########.fr       */
+/*   Updated: 2018/10/09 20:39:01 by ozalisky         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,41 @@ void	ft_check_rooms(t_db *db)
 				exit(0);
 			}
 			inner_temp = inner_temp->next_room;
+		}
+		temp = temp->next_room;
+	}
+}
+
+
+void	ft_link_start(t_db *db, t_r *start)
+{
+	t_r *temp;
+	t_r *t_start;
+
+	t_start = start ? start : db->rooms->start;
+	temp=db->rooms;
+	while(temp)
+	{
+		if (!temp->start)
+		{
+			temp->start = t_start;
+		}
+		temp = temp->next_room;
+	}
+}
+
+void	ft_link_end(t_db *db, t_r *end)
+{
+	t_r *temp;
+	t_r *t_end;
+
+	t_end = end ? end : db->rooms->end;
+	temp=db->rooms;
+	while(temp)
+	{
+		if (!temp->end)
+		{
+			temp->end = t_end;
 		}
 		temp = temp->next_room;
 	}
@@ -156,37 +191,10 @@ void	ft_saveroom(t_db *db)
 	while (ft_isdigit(db->line[i]))
 		++i;
 	temp->y = ft_atoi(db->line + i);
-	if (db->start == 1)
-	{
-		temp->position = 1;
-		db->start = 2;
-	}
-	else if (db->end == 1)
-	{
-		temp->position = 0;
-		db->end = 2;
-	}
-	else
-		temp->position = -1;
-	if (!prev)
-	{
-		temp->start = temp;
-	}
-	else if (prev)
-	{
-		temp->prev_room = prev;
-		prev->next_room = temp;
-	}
-	if (temp->position == 1)
-	{
-		temp->start = temp;
-		temp->prev_room = prev;
-	}
-	else if (db->start == 2)
-	{
-		temp->start = temp->prev_room->start;
-	}
+
+
 	temp->next_room = NULL;
+	temp->prev_room = NULL;
 	temp->links = NULL;
 	temp->end = NULL;
 	temp->links_size = 0;
@@ -195,18 +203,37 @@ void	ft_saveroom(t_db *db)
 	temp->is_vaccant = 1;
 	temp->ant_name = 0;
 	temp->finished_ants = 0;
-	if (db->end == 2 && !db->check_end)
+	temp->position = -1;
+
+
+	if (db->start == 1)
 	{
-		temp->start->end = temp; /*TEST THIS TOMORROW*/
+		temp->position = 1;
+		db->start = 2;
+		temp->start = temp;
+	}
+	if (db->end == 1)
+	{
+		temp->position = 0;
 		temp->end = temp;
-		db->check_end = 1;
+		db->end = 2;
 	}
-	else if (db->end == 2 && db->check_end)
+	if (prev)
 	{
-		temp->end = temp->start->end;
+		temp->prev_room = prev;
+		prev->next_room = temp;
 	}
+
 	if (db->rooms == NULL)
-	{
-		db->rooms = temp->start;
-	}
+		db->rooms = temp;
+
+	if (db->rooms->start)
+		temp->start=db->rooms->start;
+	else if (db->start == 2)
+		ft_link_start(db, temp->start);
+
+	if (db->rooms->end)
+		temp->end = db->rooms->end;
+	else if (db->end == 2 && db->start == 2)
+		ft_link_end(db, temp->end);
 }

@@ -6,7 +6,7 @@
 /*   By: ozalisky <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/05 20:02:21 by ozalisky          #+#    #+#             */
-/*   Updated: 2018/10/08 19:26:53 by ozalisky         ###   ########.fr       */
+/*   Updated: 2018/10/09 17:33:09 by ozalisky         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -198,8 +198,11 @@ int		main(void)
 		}
 	}
 	ft_operate(&db);
-	ft_ants(&db);
-//	ft_printf("%s",db.map);
+	ft_printf("%s\n\n",db.map);
+	ft_go((&db)->rooms->start, &db);
+//	ft_ants(&db);
 	close(db.fd);
 	exit(0);
 }
+
+//wrong q-ty of links in first node!
