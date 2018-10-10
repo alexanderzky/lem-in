@@ -171,13 +171,13 @@ void	ft_link_rooms(t_db *db)
 	target_name[j] = '\0';
 
 	//find source room
-	source = db->rooms->start;
+	source = db->rooms;
 	while (source && ft_strcmp(source_name, source->name))
 	{
 		source = source->next_room;
 	}
 	//find target room
-	target = db->rooms->start;
+	target = db->rooms;
 	while (target != NULL && ft_strcmp(target_name, target->name))
 	{
 		target = target->next_room;

@@ -78,5 +78,6 @@ void				ft_operate(t_db *db);
 void				ft_link_rooms(t_db *db);
 void				ft_ants(t_db *db);
 void ft_go(t_r *room, t_db *db);
+void			search_ways(t_r *tmpry, t_db *db);
 //void		*ft_realloc(void *ptr, size_t newsize, size_t oldsize);
 #endif

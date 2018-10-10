@@ -6,7 +6,7 @@
 /*   By: ozalisky <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/08 18:09:35 by ozalisky          #+#    #+#             */
-/*   Updated: 2018/10/09 18:30:24 by ozalisky         ###   ########.fr       */
+/*   Updated: 2018/10/10 18:24:52 by ozalisky         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,14 +51,20 @@ void ft_go(t_r *room, t_db *db)
 				room->links[path]->is_vaccant = 0;
 				if(!room->links[path]->position)
 					room->links[path]->finished_ants++;
-				ft_printf("L%d-%s ", room->links[path]->ant_name,room->links[path]->name);
+				if(!ft_strcmp("0",room->links[path]->name))
+					ft_printf("L%d-0 ", room->links[path]->ant_name);
+				else
+					ft_printf("L%d-%s ", room->links[path]->ant_name,room->links[path]->name);
 			}
 			else
 			{
 				ft_go(room->links[path],db);
 				room->links[path]->ant_name = db->ant_name_counter++;
 				room->links[path]->is_vaccant = 0;
-				ft_printf("L%d-%s ", room->links[path]->ant_name,room->links[path]->name);
+				if(!ft_strcmp("0",room->links[path]->name))
+					ft_printf("L%d-0 ", room->links[path]->ant_name);
+				else
+					ft_printf("L%d-%s ", room->links[path]->ant_name,room->links[path]->name);
 			}
 		}
 		else
@@ -79,7 +85,10 @@ void ft_go(t_r *room, t_db *db)
 				room->links[path]->ant_name = room->ant_name;
 				if(!room->links[path]->position)
 					room->links[path]->finished_ants++;
-				ft_printf("L%d-%s ", room->links[path]->ant_name,room->links[path]->name);
+				if(!ft_strcmp("0",room->links[path]->name))
+					ft_printf("L%d-0 ", room->links[path]->ant_name);
+				else
+					ft_printf("L%d-%s ", room->links[path]->ant_name,room->links[path]->name);
 			}
 			else
 			{
@@ -87,7 +96,10 @@ void ft_go(t_r *room, t_db *db)
 				room->links[path]->ant_name = room->ant_name;
 				room->links[path]->is_vaccant = 0;
 				room->is_vaccant = 1;
-				ft_printf("L%d-%s ", room->links[path]->ant_name,room->links[path]->name);
+				if(!ft_strcmp("0",room->links[path]->name))
+					ft_printf("L%d-0 ", room->links[path]->ant_name);
+				else
+					ft_printf("L%d-%s ", room->links[path]->ant_name,room->links[path]->name);
 			}
 			return;
 		}

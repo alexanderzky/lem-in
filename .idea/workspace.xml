@@ -13,11 +13,15 @@
   <component name="ChangeListManager">
     <list default="true" id="a1b81bd8-8e1e-4619-a64d-740dc02bd6d8" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/lem_in.dir/ft_ants.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/lem_in.dir/ft_ants.c.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/lem_in.dir/ft_rooms.c.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/lem_in.dir/C.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/lem_in.dir/C.includecache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/lem_in.dir/ft_links.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/lem_in.dir/ft_links.c.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/lem_in.dir/ft_paths.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/lem_in.dir/ft_paths.c.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/lem_in.dir/ft_rooms.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/lem_in.dir/ft_rooms.c.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/lem_in.dir/lemin.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/lem_in.dir/lemin.c.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/lem_in" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/lem_in" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ft_ants.c" beforeDir="false" afterPath="$PROJECT_DIR$/ft_ants.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ft_links.c" beforeDir="false" afterPath="$PROJECT_DIR$/ft_links.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ft_paths.c" beforeDir="false" afterPath="$PROJECT_DIR$/ft_paths.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ft_rooms.c" beforeDir="false" afterPath="$PROJECT_DIR$/ft_rooms.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lemin.c" beforeDir="false" afterPath="$PROJECT_DIR$/lemin.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lemin.h" beforeDir="false" afterPath="$PROJECT_DIR$/lemin.h" afterDir="false" />
@@ -35,72 +39,72 @@
     <session id="1946308201">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="8" />
+          <entry key="project.closed" value="9" />
           <entry key="project.open.time.11" value="1" />
-          <entry key="project.open.time.13" value="1" />
+          <entry key="project.open.time.13" value="2" />
           <entry key="project.open.time.21" value="2" />
           <entry key="project.open.time.25" value="2" />
           <entry key="project.open.time.26" value="1" />
           <entry key="project.open.time.28" value="2" />
           <entry key="project.open.time.29" value="1" />
           <entry key="project.open.time.37" value="1" />
-          <entry key="project.opened" value="11" />
+          <entry key="project.opened" value="12" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="ObjectiveC" value="11" />
+          <entry key="ObjectiveC" value="12" />
           <entry key="PLAIN_TEXT" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.cidr.testingFrameworks.usages" />
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="ObjectiveC" value="2679" />
-          <entry key="PLAIN_TEXT" value="9" />
+          <entry key="ObjectiveC" value="3173" />
+          <entry key="PLAIN_TEXT" value="11" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="Makefile" value="1" />
-          <entry key="c" value="10" />
+          <entry key="c" value="11" />
           <entry key="h" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="c" value="2225" />
-          <entry key="h" value="338" />
-          <entry key="m" value="116" />
-          <entry key="maps" value="9" />
+          <entry key="c" value="2618" />
+          <entry key="h" value="340" />
+          <entry key="m" value="215" />
+          <entry key="maps" value="11" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages" />
     </session>
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.6652105">
+    <splitter split-orientation="horizontal" split-proportion="0.7073074">
       <split-first>
-        <splitter split-orientation="horizontal" split-proportion="0.33490938">
+        <splitter split-orientation="horizontal" split-proportion="0.5373599">
           <split-first>
             <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
               <file pinned="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/ft_paths.c">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="1152">
-                      <caret line="64" selection-start-line="64" selection-end-line="64" />
+                    <state relative-caret-position="350">
+                      <caret line="21" column="16" selection-start-line="21" selection-start-column="16" selection-end-line="21" selection-end-column="16" />
                       <folding>
-                        <marker date="1539011546000" expanded="true" signature="912:1672" ph="..." />
+                        <marker date="1539182951000" expanded="true" signature="912:1848" ph="..." />
                       </folding>
                     </state>
                   </provider>
                 </entry>
               </file>
-              <file pinned="false" current-in-tab="true">
+              <file pinned="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/lemin.c">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="1072">
-                      <caret line="180" selection-start-line="180" selection-end-line="180" />
+                    <state relative-caret-position="420">
+                      <caret line="179" column="38" lean-forward="true" selection-start-line="179" selection-start-column="38" selection-end-line="179" selection-end-column="38" />
                       <folding>
                         <element signature="e#892#919#0" expanded="true" />
                       </folding>
@@ -108,47 +112,11 @@
                   </provider>
                 </entry>
               </file>
-              <file pinned="false" current-in-tab="false">
+              <file pinned="false" current-in-tab="true">
                 <entry file="file://$PROJECT_DIR$/ft_ants.c">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="-858">
-                      <caret line="26" column="8" selection-start-line="26" selection-start-column="8" selection-end-line="26" selection-end-column="8" />
-                    </state>
-                  </provider>
-                </entry>
-              </file>
-              <file pinned="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/libft/ft_printf.c">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="2052">
-                      <caret line="114" selection-start-line="114" selection-end-line="114" />
-                    </state>
-                  </provider>
-                </entry>
-              </file>
-              <file pinned="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/libft/ft_memalloc.c">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="324">
-                      <caret line="18" selection-start-line="18" selection-end-line="18" />
-                    </state>
-                  </provider>
-                </entry>
-              </file>
-              <file pinned="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/libft/ft_lists.c">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="324">
-                      <caret line="18" selection-start-line="18" selection-end-line="18" />
-                    </state>
-                  </provider>
-                </entry>
-              </file>
-              <file pinned="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/libft/get_next_line.c">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="1998">
-                      <caret line="111" selection-start-line="111" selection-end-line="111" />
+                    <state relative-caret-position="12">
+                      <caret line="60" column="16" lean-forward="true" selection-start-line="60" selection-start-column="16" selection-end-line="60" selection-end-column="19" />
                     </state>
                   </provider>
                 </entry>
@@ -157,20 +125,20 @@
           </split-first>
           <split-second>
             <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-              <file pinned="false" current-in-tab="false">
+              <file pinned="false" current-in-tab="true">
                 <entry file="file://$PROJECT_DIR$/ft_links.c">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="396">
-                      <caret line="22" selection-start-line="22" selection-end-line="22" />
+                    <state relative-caret-position="270">
+                      <caret line="15" column="8" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
                     </state>
                   </provider>
                 </entry>
               </file>
-              <file pinned="false" current-in-tab="true">
+              <file pinned="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/ft_rooms.c">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="360">
-                      <caret line="199" column="28" selection-start-line="199" selection-start-column="28" selection-end-line="199" selection-end-column="28" />
+                    <state relative-caret-position="822">
+                      <caret line="221" column="23" selection-start-line="221" selection-start-column="23" selection-end-line="221" selection-end-column="23" />
                     </state>
                   </provider>
                 </entry>
@@ -180,14 +148,14 @@
         </splitter>
       </split-first>
       <split-second>
-        <splitter split-orientation="vertical" split-proportion="0.740146">
+        <splitter split-orientation="vertical" split-proportion="0.4442446">
           <split-first>
             <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
               <file pinned="false" current-in-tab="true">
                 <entry file="file://$PROJECT_DIR$/lemin.h">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="1107">
-                      <caret line="79" selection-start-line="79" selection-end-line="79" />
+                    <state relative-caret-position="385">
+                      <caret line="80" column="50" selection-start-line="80" selection-start-column="50" selection-end-line="80" selection-end-column="50" />
                     </state>
                   </provider>
                 </entry>
@@ -199,8 +167,8 @@
               <file pinned="false" current-in-tab="true">
                 <entry file="file://$PROJECT_DIR$/maps">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="198">
-                      <caret line="11" column="3" selection-start-line="11" selection-start-column="3" selection-end-line="11" selection-end-column="3" />
+                    <state relative-caret-position="18">
+                      <caret line="1" column="5" selection-start-line="1" selection-start-column="5" selection-end-line="1" selection-end-column="5" />
                     </state>
                   </provider>
                 </entry>
@@ -216,6 +184,7 @@
       <find>name</find>
       <find>!=</find>
       <find>start_</find>
+      <find>db-&gt;end</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -231,12 +200,12 @@
         <option value="$PROJECT_DIR$/libft/ft_strlen.c" />
         <option value="$PROJECT_DIR$/libft/libft.h" />
         <option value="$PROJECT_DIR$/ft_links.c" />
-        <option value="$PROJECT_DIR$/ft_paths.c" />
         <option value="$PROJECT_DIR$/lemin.h" />
+        <option value="$PROJECT_DIR$/ft_paths.c" />
+        <option value="$PROJECT_DIR$/ft_rooms.c" />
+        <option value="$PROJECT_DIR$/maps" />
         <option value="$PROJECT_DIR$/lemin.c" />
         <option value="$PROJECT_DIR$/ft_ants.c" />
-        <option value="$PROJECT_DIR$/maps" />
-        <option value="$PROJECT_DIR$/ft_rooms.c" />
       </list>
     </option>
   </component>
@@ -247,9 +216,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="OCFindUsagesOptions" text="true" ivars="false" properties="true" derivedClasses="false" />
-  <component name="ProjectFrameBounds" extendedState="6" fullScreen="true">
-    <option name="x" value="1753" />
-    <option name="width" value="807" />
+  <component name="ProjectFrameBounds" fullScreen="true">
+    <option name="width" value="2560" />
     <option name="height" value="1440" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -260,6 +228,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -271,10 +240,10 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file:///Users/ozalisky/Google Drive/UNIT FACTORY/PUSH/lem-in/libft/ft_strchr.c" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
@@ -377,24 +346,25 @@
       <workItem from="1538918928297" duration="4003000" />
       <workItem from="1539003069537" duration="998000" />
       <workItem from="1539010054074" duration="7552000" />
-      <workItem from="1539092050450" duration="9753000" />
+      <workItem from="1539092050450" duration="11468000" />
+      <workItem from="1539176413182" duration="6509000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="199584000" />
+    <option name="totallyTimeSpent" value="207808000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="2560" height="1440" extended-state="6" />
+    <frame x="0" y="0" width="2560" height="1440" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.09769659" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.09769659" />
       <window_info id="Structure" order="1" weight="0.24970461" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.18832117" />
-      <window_info active="true" anchor="bottom" x="1489" y="117" width="1247" height="1362" id="Debug" order="3" type="WINDOWED" visible="true" weight="0.39941478" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.18832117" />
+      <window_info anchor="bottom" x="1267" y="126" width="1380" height="1268" id="Debug" order="3" type="WINDOWED" visible="true" weight="0.39941478" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -402,7 +372,7 @@
       <window_info anchor="bottom" id="CMake" order="8" />
       <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.4986215" weight="0.08248175" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5013785" side_tool="true" weight="0.28310168" />
-      <window_info anchor="bottom" id="Messages" order="11" visible="true" weight="0.14306569" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.14306569" />
       <window_info anchor="bottom" id="Database Changes" order="12" show_stripe_button="false" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -447,54 +417,50 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/lemin.c</url>
-          <line>201</line>
+          <line>202</line>
           <option name="timeStamp" value="56" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <condition expression="room-&gt;name==&quot;3&quot;" language="ObjectiveC" />
           <url>file://$PROJECT_DIR$/ft_ants.c</url>
-          <line>73</line>
-          <option name="timeStamp" value="61" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/ft_rooms.c</url>
-          <line>61</line>
-          <option name="timeStamp" value="66" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/ft_rooms.c</url>
-          <line>228</line>
-          <option name="timeStamp" value="67" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/ft_rooms.c</url>
-          <line>203</line>
-          <option name="timeStamp" value="69" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/ft_rooms.c</url>
-          <line>151</line>
-          <option name="timeStamp" value="70" />
+          <line>39</line>
+          <option name="timeStamp" value="71" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <watches-manager>
       <configuration name="CMakeRunConfiguration">
         <watch expression="db-&gt;ants" language="ObjectiveC" />
-        <watch expression="room-&gt;end-&gt;finished_ants" language="ObjectiveC" />
-        <watch expression="room-&gt;links_size" language="ObjectiveC" />
-        <watch expression="room-&gt;links[path]-&gt;is_vaccant" language="ObjectiveC" />
-        <watch expression="room-&gt;links[path]-&gt;ant_name" language="ObjectiveC" />
-        <watch expression="db-&gt;ant_name_counter" language="ObjectiveC" />
-        <watch expression="room-&gt;name" language="ObjectiveC" />
-        <watch expression="room-&gt;links[path]-&gt;name" language="ObjectiveC" />
-        <watch expression="room-&gt;step" language="ObjectiveC" />
-        <watch expression="room-&gt;links[i]-&gt;step" language="ObjectiveC" />
-        <watch expression="path" language="ObjectiveC" />
+        <watch expression="db-&gt;rooms-&gt;finished_ants" language="ObjectiveC" />
       </configuration>
     </watches-manager>
   </component>
   <component name="debuggerHistoryManager">
+    <expressions id="evaluateCodeFragment">
+      <expression>
+        <expression-string>(!((tmpry-&gt;links)[i_links])-&gt;connected &amp;&amp;
+		tmpry-&gt;links[i_links]-&gt;position == -1 &amp;&amp; tmpry-&gt;links[i_links]-&gt;step != 2147483647)</expression-string>
+        <language-id>ObjectiveC</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>(((tmpry-&gt;links)[i_links])-&gt;step &gt;= db-&gt;steps + 1 &amp;&amp; tmpry-&gt;links[i_links]-&gt;position != 1 &amp;&amp;
+			tmpry-&gt;links[i_links]-&gt;position != 0)</expression-string>
+        <language-id>ObjectiveC</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>(!((tmpry-&gt;links)[i_links])-&gt;connected &amp;&amp;
+		tmpry-&gt;links[i_links]-&gt;position != 1 &amp;&amp; tmpry-&gt;links[i_links]-&gt;position != 0)</expression-string>
+        <language-id>ObjectiveC</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>((!((tmpry-&gt;links)[i_links])-&gt;connected &amp;&amp;
+		tmpry-&gt;links[i_links]-&gt;position != 1 &amp;&amp; tmpry-&gt;links[i_links]-&gt;position != 0)</expression-string>
+        <language-id>ObjectiveC</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+    </expressions>
     <expressions id="breakpointCondition">
       <expression>
         <expression-string>room-&gt;name==&quot;3&quot;</expression-string>
@@ -509,52 +475,52 @@
     </expressions>
     <expressions id="watch">
       <expression>
-        <expression-string>room-&gt;name</expression-string>
+        <expression-string>db-&gt;rooms-&gt;finished_ants</expression-string>
         <language-id>ObjectiveC</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>path</expression-string>
+        <expression-string>db-&gt;ants</expression-string>
         <language-id>ObjectiveC</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>room-&gt;links[i]-&gt;step</expression-string>
+        <expression-string>tmpry-&gt;links[i_links]-&gt;position</expression-string>
         <language-id>ObjectiveC</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>room-&gt;step</expression-string>
+        <expression-string>db-&gt;steps+1</expression-string>
         <language-id>ObjectiveC</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>room-&gt;links[path]-&gt;name</expression-string>
+        <expression-string>db-&gt;steps</expression-string>
         <language-id>ObjectiveC</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>room-&gt;links[path]</expression-string>
+        <expression-string>tmpry-&gt;step</expression-string>
         <language-id>ObjectiveC</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>room-&gt;end-&gt;finished_ants</expression-string>
+        <expression-string>tmpry-&gt;links[i_links]-&gt;step</expression-string>
         <language-id>ObjectiveC</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>db-&gt;ant_name_counter</expression-string>
+        <expression-string>tmpry-&gt;links[i_links]-&gt;connected</expression-string>
         <language-id>ObjectiveC</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>room-&gt;links[path]-&gt;ant_name</expression-string>
+        <expression-string>tmpry-&gt;links[i_links]-&gt;name</expression-string>
         <language-id>ObjectiveC</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>room-&gt;links[path]-&gt;is_vaccant</expression-string>
+        <expression-string>i_links</expression-string>
         <language-id>ObjectiveC</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
@@ -695,13 +661,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/libft/ft_strchr.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="12" selection-start-line="12" selection-end-line="32" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/libft/libft.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="252">
@@ -713,16 +672,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="696">
           <caret line="39" column="30" lean-forward="true" selection-start-line="39" selection-start-column="30" selection-end-line="39" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ft_paths.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1152">
-          <caret line="64" selection-start-line="64" selection-end-line="64" />
-          <folding>
-            <marker date="1539011546000" expanded="true" signature="912:1672" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -754,48 +703,65 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/libft/ft_strchr.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="12" selection-start-line="12" selection-end-line="32" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/lemin.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1107">
-          <caret line="79" selection-start-line="79" selection-end-line="79" />
+        <state relative-caret-position="385">
+          <caret line="80" column="50" selection-start-line="80" selection-start-column="50" selection-end-line="80" selection-end-column="50" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ft_ants.c">
+    <entry file="file://$PROJECT_DIR$/ft_rooms.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-858">
-          <caret line="26" column="8" selection-start-line="26" selection-start-column="8" selection-end-line="26" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/maps">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="11" column="3" selection-start-line="11" selection-start-column="3" selection-end-line="11" selection-end-column="3" />
+        <state relative-caret-position="822">
+          <caret line="221" column="23" selection-start-line="221" selection-start-column="23" selection-end-line="221" selection-end-column="23" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ft_links.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="22" selection-start-line="22" selection-end-line="22" />
+        <state relative-caret-position="270">
+          <caret line="15" column="8" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/maps">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="1" column="5" selection-start-line="1" selection-start-column="5" selection-end-line="1" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ft_paths.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="350">
+          <caret line="21" column="16" selection-start-line="21" selection-start-column="16" selection-end-line="21" selection-end-column="16" />
+          <folding>
+            <marker date="1539182951000" expanded="true" signature="912:1848" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lemin.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1072">
-          <caret line="180" selection-start-line="180" selection-end-line="180" />
+        <state relative-caret-position="420">
+          <caret line="179" column="38" lean-forward="true" selection-start-line="179" selection-start-column="38" selection-end-line="179" selection-end-column="38" />
           <folding>
             <element signature="e#892#919#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ft_rooms.c">
+    <entry file="file://$PROJECT_DIR$/ft_ants.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="199" column="28" selection-start-line="199" selection-start-column="28" selection-end-line="199" selection-end-column="28" />
+        <state relative-caret-position="12">
+          <caret line="60" column="16" lean-forward="true" selection-start-line="60" selection-start-column="16" selection-end-line="60" selection-end-column="19" />
         </state>
       </provider>
     </entry>

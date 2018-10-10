@@ -6,7 +6,7 @@
 /*   By: ozalisky <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/12 21:02:54 by ozalisky          #+#    #+#             */
-/*   Updated: 2018/10/09 20:39:01 by ozalisky         ###   ########.fr       */
+/*   Updated: 2018/10/10 17:49:11 by ozalisky         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -196,7 +196,9 @@ void	ft_saveroom(t_db *db)
 	temp->next_room = NULL;
 	temp->prev_room = NULL;
 	temp->links = NULL;
+	temp->start = NULL;
 	temp->end = NULL;
+	temp->step = 2147483647;
 	temp->links_size = 0;
 	temp->link_slot = 0;
 	temp->connected = 0;
@@ -217,6 +219,7 @@ void	ft_saveroom(t_db *db)
 		temp->position = 0;
 		temp->end = temp;
 		db->end = 2;
+		temp->step = 0;
 	}
 	if (prev)
 	{
