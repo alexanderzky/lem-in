@@ -12,11 +12,11 @@
 
 #include "lemin.h"
 
-int ft_find_path(t_r *room)
+size_t ft_find_path(t_r *room)
 {
 	int path;
-	int i;
-	int array_cell;
+	size_t i;
+	size_t array_cell;
 
 	path = 2147483647;
 	array_cell = 0;
@@ -37,7 +37,7 @@ int ft_find_path(t_r *room)
 
 void ft_go(t_r *room, t_db *db)
 {
-	int path;
+	size_t path;
 
 	if (room->position == 1)
 	{

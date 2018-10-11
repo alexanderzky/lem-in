@@ -28,7 +28,7 @@ typedef struct		s_room
 	int				step;
 	int				connected;
 	int 			is_vaccant;
-	int 			ant_name;
+	size_t 			ant_name;
 	size_t 			finished_ants;
 	size_t			links_size;
 	size_t			link_slot;

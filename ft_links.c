@@ -17,12 +17,12 @@ void	ft_check_links(t_db *db)
 {
 	if (db->end ^ 2 || db->start ^ 2)
 	{
-		ft_printf("ERROR\n");
+		ft_printf("ERROR no start end\n");
 		exit(0);
 	}
 	if (db->rooms->start->links_size == 0 || db->rooms->end->links_size == 0)
 	{
-		ft_printf("ERROR\n");
+		ft_printf("ERROR not connected\n");
 		exit(0);
 	}
 }

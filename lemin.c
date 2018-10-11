@@ -6,7 +6,7 @@
 /*   By: ozalisky <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/05 20:02:21 by ozalisky          #+#    #+#             */
-/*   Updated: 2018/10/10 16:59:22 by ozalisky         ###   ########.fr       */
+/*   Updated: 2018/10/11 19:21:35 by ozalisky         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,12 @@ void	ft_validate(t_db *db)
 {
 	if (db->ants < 1 || db->ants > 2147483647)
 	{
-		ft_printf("ERROR\n");
+		ft_printf("ERROR ants\n");
 		exit(0);
 	}
 	else if (!db->rooms)
 	{
-		ft_printf("ERROR\n");
+		ft_printf("ERROR rooms\n");
 		exit(0);
 	}
 	ft_check_links(db);
@@ -41,6 +41,25 @@ void	ft_comments(t_db *db)
 	{
 		db->end = 1;
 	}
+}
+
+void ft_check_way(t_db *db)
+{
+	t_r *temp;
+	size_t index;
+
+	index = 0;
+	temp = db->rooms->start;
+	while (index < temp->links_size)
+	{
+		if (temp->links[index]->step != 2147483647)
+		{
+			return ;
+		}
+		index++;
+	}
+	ft_printf("ERROR no way\n");
+	exit(0);
 }
 
 int		ft_isnumber(char *str)
@@ -126,12 +145,12 @@ void	ft_check_line(t_db *db)
 		db->moved_ants = db->ants;
 		db->ants_flag = 1;
 	}
-	else if (ft_strncmp("##s",db->line,3) == 0 && db->start == -1)
+	else if (ft_strcmp("##start",db->line) == 0 && db->start == -1)
 	{
 		ft_comments(db);
 		db->start = 1;
 	}
-	else if (ft_strncmp("##e",db->line,3) == 0 && db->end == -1)
+	else if (ft_strcmp("##end",db->line) == 0 && db->end == -1)
 	{
 		ft_comments(db);
 		db->end = 1;
@@ -178,18 +197,24 @@ int		main(void)
 
 	ft_init(&db);
 	db.fd = open("../maps", O_RDONLY);
+//	db.fd = 0;
+//	ft_printf("\nREAD MAP\n");
 	while (!db.error && get_next_line(db.fd, &db.line) > 0)
 	{
+//		ft_printf("%s\n",db.line);
 		if (db.line[0] == '\0')
 			break ;
 		ft_check_line(&db);
 	}
 	free(db.line);
 	close(db.fd);
-	ft_validate(&db);
+//	ft_printf("\nVALIDATE\n");
+
+//	ft_printf("\nREAD MAP\n");
 	db.fd = open("../maps", O_RDONLY);
 	while (!db.error && get_next_line(db.fd, &db.line) > 0)
 	{
+//		ft_printf("%s\n",db.line);
 		if (db.line[0] == '\0')
 			break ;
 		if(ft_islink(db.line))
@@ -197,7 +222,10 @@ int		main(void)
 			ft_link_rooms(&db);
 		}
 	}
+	ft_validate(&db);
+//	ft_printf("\nSEARCH\n");
 	search_ways((&db)->rooms->end, &db);
+	ft_check_way(&db);
 //	ft_operate(&db);
 	ft_printf("%s\n\n",db.map);
 	ft_go((&db)->rooms->start, &db);
