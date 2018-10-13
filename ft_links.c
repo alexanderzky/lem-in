@@ -112,7 +112,7 @@ void	ft_count_room_mentions(t_db *db)
 		source = source->next_room;
 	}
 	//change links size to know how much memory to malloc
-	if (!ft_strcmp(source_name, source->name))
+	if (source && !ft_strcmp(source_name, source->name))
 	{
 		++source->links_size;
 	}
@@ -123,7 +123,7 @@ void	ft_count_room_mentions(t_db *db)
 		target = target->next_room;
 	}
 	//change links size to know how much memory to malloc
-	if (!ft_strcmp(target_name, target->name))
+	if (target && !ft_strcmp(target_name, target->name))
 	{
 		++target->links_size;
 	}

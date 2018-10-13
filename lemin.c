@@ -6,7 +6,7 @@
 /*   By: ozalisky <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/05 20:02:21 by ozalisky          #+#    #+#             */
-/*   Updated: 2018/10/11 19:21:35 by ozalisky         ###   ########.fr       */
+/*   Updated: 2018/10/13 19:07:32 by ozalisky         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,12 @@ void	ft_validate(t_db *db)
 		ft_printf("ERROR rooms\n");
 		exit(0);
 	}
-	ft_check_links(db);
+	if (!db->rooms_flag || !db->links_flag || db->error)
+	{
+		ft_printf("ERROR rooms || links || error\n");
+		exit(0);
+	}
+//	ft_check_links(db);
 	ft_check_rooms(db);
 }
 
@@ -169,6 +174,8 @@ void	ft_check_line(t_db *db)
 			(!ft_strcmp("##end",db->line) && db->end > 0) ||
 			(db->line[0] == '#' && db->line[1] ^ '#' && (db->start == 1 || db->end == 1)))
 		db->error = 1;
+	else
+		db->error = 1;
 	if (!db->error)
 		ft_lineconcatmap(db);
 	free(db->line);
@@ -197,24 +204,18 @@ int		main(void)
 
 	ft_init(&db);
 	db.fd = open("../maps", O_RDONLY);
-//	db.fd = 0;
-//	ft_printf("\nREAD MAP\n");
 	while (!db.error && get_next_line(db.fd, &db.line) > 0)
 	{
-//		ft_printf("%s\n",db.line);
 		if (db.line[0] == '\0')
 			break ;
 		ft_check_line(&db);
 	}
 	free(db.line);
 	close(db.fd);
-//	ft_printf("\nVALIDATE\n");
-
-//	ft_printf("\nREAD MAP\n");
+	ft_validate(&db);
 	db.fd = open("../maps", O_RDONLY);
 	while (!db.error && get_next_line(db.fd, &db.line) > 0)
 	{
-//		ft_printf("%s\n",db.line);
 		if (db.line[0] == '\0')
 			break ;
 		if(ft_islink(db.line))
@@ -222,14 +223,11 @@ int		main(void)
 			ft_link_rooms(&db);
 		}
 	}
-	ft_validate(&db);
-//	ft_printf("\nSEARCH\n");
+	ft_check_links(&db);
 	search_ways((&db)->rooms->end, &db);
 	ft_check_way(&db);
-//	ft_operate(&db);
 	ft_printf("%s\n\n",db.map);
 	ft_go((&db)->rooms->start, &db);
-//	ft_ants(&db);
 	close(db.fd);
 	exit(0);
 }
