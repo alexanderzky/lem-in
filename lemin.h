@@ -65,6 +65,7 @@ typedef struct		s_db
 
 	int 			steps;
 	int 			ant_name_counter;
+	size_t			len;
 
 //	int tempSize;
 }					t_db;

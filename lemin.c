@@ -6,7 +6,7 @@
 /*   By: ozalisky <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/05 20:02:21 by ozalisky          #+#    #+#             */
-/*   Updated: 2018/10/13 19:07:32 by ozalisky         ###   ########.fr       */
+/*   Updated: 2018/10/15 18:26:52 by ozalisky         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -195,7 +195,26 @@ void	ft_init(t_db *db)
 	db->links_flag = 0;
 	db->check_end = 0;
 	db->steps = 0;
-	db->ant_name_counter =1;
+	db->ant_name_counter = 1;
+	db->len = 0;
+}
+
+
+char *ft_str_cpy_ntrvl(t_db *db, size_t start, size_t end)
+{
+	char *str;
+	size_t length;
+	size_t i;
+
+	i = 0;
+	length = end - start;
+	str = ft_memalloc(sizeof(char) * (length + 1));
+	while (start < end)
+	{
+		str[i++] = db->map[start++];
+	}
+	str[i] = '\0';
+	return (str);
 }
 
 int		main(void)
@@ -203,9 +222,11 @@ int		main(void)
 	t_db	db;
 
 	ft_init(&db);
-	db.fd = open("../maps", O_RDONLY);
+//	db.fd = open("../maps", O_RDONLY);
+	db.fd = 0;
 	while (!db.error && get_next_line(db.fd, &db.line) > 0)
 	{
+
 		if (db.line[0] == '\0')
 			break ;
 		ft_check_line(&db);
@@ -213,22 +234,33 @@ int		main(void)
 	free(db.line);
 	close(db.fd);
 	ft_validate(&db);
-	db.fd = open("../maps", O_RDONLY);
-	while (!db.error && get_next_line(db.fd, &db.line) > 0)
+
+	size_t start;
+	start = 0;
+	size_t lenlen = (size_t)ft_strlen(db.map);
+	while (db.len <= lenlen)
 	{
-		if (db.line[0] == '\0')
-			break ;
-		if(ft_islink(db.line))
+
+		if (db.map[db.len] == '\n' || db.map[db.len] == '\0')
 		{
-			ft_link_rooms(&db);
+			db.line = ft_str_cpy_ntrvl(&db, start, db.len);
+			start = db.len + 1;
+			if(ft_islink(db.line))
+			{
+				ft_link_rooms(&db);
+			}
 		}
+		if (db.map[db.len] == '\0')
+			break ;
+		++db.len;
 	}
+
 	ft_check_links(&db);
 	search_ways((&db)->rooms->end, &db);
 	ft_check_way(&db);
 	ft_printf("%s\n\n",db.map);
 	ft_go((&db)->rooms->start, &db);
-	close(db.fd);
+//	close(db.fd);
 	exit(0);
 }
 
