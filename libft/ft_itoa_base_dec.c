@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa_base_dec.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ozalisky <ozalisky@student.unit.ua>        +#+  +:+       +#+        */
+/*   By: ozalisky <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/14 15:49:12 by ozalisky          #+#    #+#             */
-/*   Updated: 2018/05/15 16:01:15 by ozalisky         ###   ########.fr       */
+/*   Updated: 2018/10/16 18:18:27 by ozalisky         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	ft_numb(t_params **ts, long value, long size)
 	long		j;
 
 	size = ft_nbr_lngth(value);
-	if (!((*ts)->ostr = (char*)malloc(sizeof(char) * (size + 1))))
+	if (!((*ts)->ostr = ft_memalloc(sizeof(char) * (size + 1))))
 	{
 		(*ts)->error = 1;
 		return ;

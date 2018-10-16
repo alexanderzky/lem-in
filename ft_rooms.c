@@ -6,7 +6,7 @@
 /*   By: ozalisky <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/12 21:02:54 by ozalisky          #+#    #+#             */
-/*   Updated: 2018/10/10 17:49:11 by ozalisky         ###   ########.fr       */
+/*   Updated: 2018/10/16 19:36:40 by ozalisky         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	ft_check_rooms(t_db *db)
 				ft_printf("ERROR\n");
 				exit(0);
 			}
-			if (ft_strcmp(temp->name,inner_temp->name) == 0)
+			if (ft_strcmp(temp->name, inner_temp->name) == 0)
 			{
 				ft_printf("ERROR\n");
 				exit(0);
@@ -39,15 +39,14 @@ void	ft_check_rooms(t_db *db)
 	}
 }
 
-
 void	ft_link_start(t_db *db, t_r *start)
 {
 	t_r *temp;
 	t_r *t_start;
 
 	t_start = start ? start : db->rooms->start;
-	temp=db->rooms;
-	while(temp)
+	temp = db->rooms;
+	while (temp)
 	{
 		if (!temp->start)
 		{
@@ -63,8 +62,8 @@ void	ft_link_end(t_db *db, t_r *end)
 	t_r *t_end;
 
 	t_end = end ? end : db->rooms->end;
-	temp=db->rooms;
-	while(temp)
+	temp = db->rooms;
+	while (temp)
 	{
 		if (!temp->end)
 		{
@@ -96,50 +95,69 @@ int		ft_chrinstr(const char *s, int c)
 	return (0);
 }
 
-int		ft_isroom(char *str)
+void	ft_room_cycle(t_db *db, char *str)
 {
-	int i;
-	int spaces;
-	int name;
-	int coordinates;
-	int wrong;
-
-	wrong = 0;
-	coordinates = 0;
-	name = 0;
-	spaces = 0;
-	i = 0;
-	while (i < ft_strlen(str))
+	if (db->is_room_i == 0 && str[db->is_room_i] ^ 'L' && str[db->is_room_i] ^ '#' && str[db->is_room_i] ^ ' ')
 	{
-		if (i == 0 && str[i] ^ 'L' && str[i] ^ '#' && str[i] ^ ' ')
-		{
-			++name;
-			while (i < ft_strlen(str) && str[i + 1] ^ ' ')
-				++i;
-		}
-		else if (str[i] == ' ')
-			++spaces;
-		else if (ft_isdigit(str[i]))
-		{
-			++coordinates;
-			while (i < ft_strlen(str) && ft_isdigit(str[i]) && str[i + 1] ^ ' ')
-			{
-				++i;
-			}
-			if (ft_isalpha(str[i]))
-			{
-				++wrong;
-			}
-		}
-		else if (ft_isalpha(str[i]))
-		{
-			++wrong;
-		}
-		++i;
+		++db->is_room_name;
+		while (db->is_room_i < ft_strlen(str) && str[db->is_room_i + 1] ^ ' ')
+			++db->is_room_i;
 	}
-	if (name == 1 && spaces == 2 && coordinates == 2 && wrong == 0)
+	else if (str[db->is_room_i] == ' ')
+		++db->is_room_spaces;
+	else if (ft_isdigit(str[db->is_room_i]))
+	{
+		++db->is_room_coordinates;
+		while (db->is_room_i < ft_strlen(str) && ft_isdigit(str[db->is_room_i]) && str[db->is_room_i + 1] ^ ' ')
+			++db->is_room_i;
+		if (ft_isalpha(str[db->is_room_i]))
+			++db->is_room_wrong;
+	}
+	else if (ft_isalpha(str[db->is_room_i]))
+	{
+		++db->is_room_wrong;
+	}
+	++db->is_room_i;
+}
+
+int		ft_isroom(t_db *db, char *str)
+{
+//	int i;
+//	int spaces;
+//	int name;
+//	int coordinates;
+//	int wrong;
+
+	db->is_room_wrong = 0;
+	db->is_room_coordinates = 0;
+	db->is_room_name = 0;
+	db->is_room_spaces = 0;
+	db->is_room_i = 0;
+	while (db->is_room_i < ft_strlen(str))
+	{
+		ft_room_cycle(db, str);
+	}
+	if (db->is_room_name == 1 && db->is_room_spaces == 2 &&
+	db->is_room_coordinates == 2 && db->is_room_wrong == 0)
 		return (1);
 	return (0);
+}
+
+void	ft_init_temp(t_r *temp)
+{
+	temp->next_room = NULL;
+	temp->prev_room = NULL;
+	temp->links = NULL;
+	temp->start = NULL;
+	temp->end = NULL;
+	temp->step = 2147483647;
+	temp->links_size = 0;
+	temp->link_slot = 0;
+	temp->connected = 0;
+	temp->is_vaccant = 1;
+	temp->ant_name = 0;
+	temp->finished_ants = 0;
+	temp->position = -1;
 }
 
 void	ft_saveroom(t_db *db)
@@ -158,7 +176,6 @@ void	ft_saveroom(t_db *db)
 		prev = temp;
 		temp = temp->next_room;
 	}
-
 	if (!(temp = (t_r*)malloc(sizeof(t_r))))
 	{
 		ft_printf("ERROR\n");
@@ -181,33 +198,15 @@ void	ft_saveroom(t_db *db)
 		++i;
 	}
 	temp->name[i] = '\0';
-	if (ft_chrinstr(temp->name,'-'))
-	{
+	if (ft_chrinstr(temp->name, '-'))
 		db->error = 1;
-	}
 	while (!(ft_isdigit(db->line[i])))
 		++i;
 	temp->x = ft_atoi(db->line + i);
 	while (ft_isdigit(db->line[i]))
 		++i;
 	temp->y = ft_atoi(db->line + i);
-
-
-	temp->next_room = NULL;
-	temp->prev_room = NULL;
-	temp->links = NULL;
-	temp->start = NULL;
-	temp->end = NULL;
-	temp->step = 2147483647;
-	temp->links_size = 0;
-	temp->link_slot = 0;
-	temp->connected = 0;
-	temp->is_vaccant = 1;
-	temp->ant_name = 0;
-	temp->finished_ants = 0;
-	temp->position = -1;
-
-
+	ft_init_temp(temp);
 	if (db->start == 1)
 	{
 		temp->position = 1;
@@ -226,15 +225,12 @@ void	ft_saveroom(t_db *db)
 		temp->prev_room = prev;
 		prev->next_room = temp;
 	}
-
 	if (db->rooms == NULL)
 		db->rooms = temp;
-
 	if (db->rooms->start)
-		temp->start=db->rooms->start;
+		temp->start = db->rooms->start;
 	else if (db->start == 2)
 		ft_link_start(db, temp->start);
-
 	if (db->rooms->end)
 		temp->end = db->rooms->end;
 	else if (db->end == 2 && db->start == 2)

@@ -6,36 +6,35 @@
 /*   By: ozalisky <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/08 18:09:35 by ozalisky          #+#    #+#             */
-/*   Updated: 2018/10/10 18:24:52 by ozalisky         ###   ########.fr       */
+/*   Updated: 2018/10/16 19:14:02 by ozalisky         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lemin.h"
 
-size_t ft_find_path(t_r *room)
+size_t	ft_find_path(t_r *room)
 {
-	int path;
-	size_t i;
-	size_t array_cell;
+	int		path;
+	size_t	i;
+	size_t	array_cell;
 
 	path = 2147483647;
 	array_cell = 0;
 	i = 0;
 	while (i < room->links_size)
 	{
-		if ((room->links[i]->step > 0 && room->links[i]->step < path)||
+		if ((room->links[i]->step > 0 && room->links[i]->step < path) ||
 		!room->links[i]->position)
 		{
 			path = room->links[i]->step;
 			array_cell = i;
 		}
-
 		++i;
 	}
 	return (array_cell);
 }
 
-void ft_go(t_r *room, t_db *db)
+void	ft_go(t_r *room, t_db *db)
 {
 	size_t path;
 
@@ -49,31 +48,33 @@ void ft_go(t_r *room, t_db *db)
 			{
 				room->links[path]->ant_name = db->ant_name_counter++;
 				room->links[path]->is_vaccant = 0;
-				if(!room->links[path]->position)
+				if (!room->links[path]->position)
 					room->links[path]->finished_ants++;
-				if(!ft_strcmp("0",room->links[path]->name))
+				if (!ft_strcmp("0", room->links[path]->name))
 					ft_printf("L%d-0 ", room->links[path]->ant_name);
 				else
-					ft_printf("L%d-%s ", room->links[path]->ant_name,room->links[path]->name);
+					ft_printf("L%d-%s ", room->links[path]->ant_name,
+							room->links[path]->name);
 			}
 			else
 			{
-				ft_go(room->links[path],db);
+				ft_go(room->links[path], db);
 				room->links[path]->ant_name = db->ant_name_counter++;
 				room->links[path]->is_vaccant = 0;
-				if(!ft_strcmp("0",room->links[path]->name))
+				if (!ft_strcmp("0", room->links[path]->name))
 					ft_printf("L%d-0 ", room->links[path]->ant_name);
 				else
-					ft_printf("L%d-%s ", room->links[path]->ant_name,room->links[path]->name);
+					ft_printf("L%d-%s ", room->links[path]->ant_name,
+							room->links[path]->name);
 			}
 		}
 		else
 		{
 			path = ft_find_path(room);
-			ft_go(room->links[path],db);
+			ft_go(room->links[path], db);
 		}
 	}
-	else if (room->position /*&& !room->is_vaccant*/)
+	else if (room->position)
 	{
 		if (!room->is_vaccant)
 		{
@@ -83,57 +84,43 @@ void ft_go(t_r *room, t_db *db)
 				room->links[path]->is_vaccant = 0;
 				room->is_vaccant = 1;
 				room->links[path]->ant_name = room->ant_name;
-				if(!room->links[path]->position)
+				if (!room->links[path]->position)
 					room->links[path]->finished_ants++;
-				if(!ft_strcmp("0",room->links[path]->name))
+				if (!ft_strcmp("0", room->links[path]->name))
 					ft_printf("L%d-0 ", room->links[path]->ant_name);
 				else
-					ft_printf("L%d-%s ", room->links[path]->ant_name,room->links[path]->name);
+					ft_printf("L%d-%s ", room->links[path]->ant_name,
+							room->links[path]->name);
 			}
 			else
 			{
-				ft_go(room->links[path],db);
+				ft_go(room->links[path], db);
 				room->links[path]->ant_name = room->ant_name;
 				room->links[path]->is_vaccant = 0;
 				room->is_vaccant = 1;
-				if(!ft_strcmp("0",room->links[path]->name))
+				if (!ft_strcmp("0", room->links[path]->name))
 					ft_printf("L%d-0 ", room->links[path]->ant_name);
 				else
-					ft_printf("L%d-%s ", room->links[path]->ant_name,room->links[path]->name);
+					ft_printf("L%d-%s ", room->links[path]->ant_name,
+							room->links[path]->name);
 			}
-			return;
+			return ;
 		}
 		else
 		{
 			path = ft_find_path(room);
-			ft_go(room->links[path],db);
+			ft_go(room->links[path], db);
 		}
 	}
-	//need to skip first round when all ants moved from start
-//	if ((!db->ants && room->position) || (room->is_vaccant && room->position == -1))
-//	{
-//		while()
-//		ft_go(db->rooms->start, db);
-//	}
-
 	if (room->end->finished_ants == db->moved_ants)
-		return;
+		return ;
 	ft_printf("\n");
-	ft_go(db->rooms->start, db);
-
-//	else if (!room->position)
-//	{
-//		if (db->ants > 0)
-//		{
-//			room->ant_name--;
-//			path = ft_find_path(room);
-//			room->links[path]->is_vaccant = 0;
-//			room->links[path]->ant_name = room->ant_name;
-//		}
-//	}
 }
 
-void ft_ants(t_db *db)
+void	ft_ants(t_db *db)
 {
-	ft_go(db->rooms->start, db);
+	while (db->rooms->end->finished_ants != db->moved_ants)
+	{
+		ft_go(db->rooms->start, db);
+	}
 }

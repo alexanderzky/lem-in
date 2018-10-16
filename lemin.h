@@ -6,7 +6,7 @@
 /*   By: ozalisky <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/05 20:02:14 by ozalisky          #+#    #+#             */
-/*   Updated: 2018/10/08 19:36:44 by ozalisky         ###   ########.fr       */
+/*   Updated: 2018/10/16 17:04:14 by ozalisky         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,13 +65,24 @@ typedef struct		s_db
 
 	int 			steps;
 	int 			ant_name_counter;
+
+
 	size_t			len;
+	size_t			cycle_start;
+	size_t			lenlen;
+
+
+	int				is_room_i;
+	int				is_room_spaces;
+	int				is_room_name;
+	int				is_room_coordinates;
+	int				is_room_wrong;
 
 //	int tempSize;
 }					t_db;
 int					ft_islink(char *str);
 void				ft_count_room_mentions(t_db *db);
-int					ft_isroom(char *str);
+int					ft_isroom(t_db *db, char *str);
 void				ft_saveroom(t_db *db);
 void				ft_check_rooms(t_db *db);
 void				ft_check_links(t_db *db);
