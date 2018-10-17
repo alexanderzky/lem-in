@@ -6,7 +6,7 @@
 /*   By: ozalisky <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/12 21:02:54 by ozalisky          #+#    #+#             */
-/*   Updated: 2018/10/16 19:36:40 by ozalisky         ###   ########.fr       */
+/*   Updated: 2018/10/17 20:57:02 by ozalisky         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,8 @@ int		ft_chrinstr(const char *s, int c)
 
 void	ft_room_cycle(t_db *db, char *str)
 {
-	if (db->is_room_i == 0 && str[db->is_room_i] ^ 'L' && str[db->is_room_i] ^ '#' && str[db->is_room_i] ^ ' ')
+	if (db->is_room_i == 0 && str[db->is_room_i] ^ 'L' && str[db->is_room_i] ^
+	'#' && str[db->is_room_i] ^ ' ')
 	{
 		++db->is_room_name;
 		while (db->is_room_i < ft_strlen(str) && str[db->is_room_i + 1] ^ ' ')
@@ -108,7 +109,8 @@ void	ft_room_cycle(t_db *db, char *str)
 	else if (ft_isdigit(str[db->is_room_i]))
 	{
 		++db->is_room_coordinates;
-		while (db->is_room_i < ft_strlen(str) && ft_isdigit(str[db->is_room_i]) && str[db->is_room_i + 1] ^ ' ')
+		while (db->is_room_i < ft_strlen(str) && ft_isdigit(str[db->is_room_i])
+		&& str[db->is_room_i + 1] ^ ' ')
 			++db->is_room_i;
 		if (ft_isalpha(str[db->is_room_i]))
 			++db->is_room_wrong;
@@ -122,12 +124,6 @@ void	ft_room_cycle(t_db *db, char *str)
 
 int		ft_isroom(t_db *db, char *str)
 {
-//	int i;
-//	int spaces;
-//	int name;
-//	int coordinates;
-//	int wrong;
-
 	db->is_room_wrong = 0;
 	db->is_room_coordinates = 0;
 	db->is_room_name = 0;
@@ -160,53 +156,8 @@ void	ft_init_temp(t_r *temp)
 	temp->position = -1;
 }
 
-void	ft_saveroom(t_db *db)
+void	ft_ch_position(t_db *db, t_r *temp, t_r *prev)
 {
-	int i;
-	t_r	*prev;
-	t_r	*temp;
-	int name_length;
-
-	name_length = 0;
-	temp = db->rooms;
-	i = 0;
-	prev = NULL;
-	while (temp != NULL)
-	{
-		prev = temp;
-		temp = temp->next_room;
-	}
-	if (!(temp = (t_r*)malloc(sizeof(t_r))))
-	{
-		ft_printf("ERROR\n");
-		exit(0);
-	}
-	temp->step = 0;
-	while (db->line[i++] ^ ' ')
-	{
-		++name_length;
-	}
-	if (!(temp->name = ft_memalloc(sizeof(char *) * (name_length + 1))))
-	{
-		ft_printf("ERROR\n");
-		exit(0);
-	}
-	i = 0;
-	while (db->line[i] ^ ' ')
-	{
-		temp->name[i] = db->line[i];
-		++i;
-	}
-	temp->name[i] = '\0';
-	if (ft_chrinstr(temp->name, '-'))
-		db->error = 1;
-	while (!(ft_isdigit(db->line[i])))
-		++i;
-	temp->x = ft_atoi(db->line + i);
-	while (ft_isdigit(db->line[i]))
-		++i;
-	temp->y = ft_atoi(db->line + i);
-	ft_init_temp(temp);
 	if (db->start == 1)
 	{
 		temp->position = 1;
@@ -225,6 +176,10 @@ void	ft_saveroom(t_db *db)
 		temp->prev_room = prev;
 		prev->next_room = temp;
 	}
+}
+
+void	ft_mark_rooms(t_db *db, t_r *temp)
+{
 	if (db->rooms == NULL)
 		db->rooms = temp;
 	if (db->rooms->start)
@@ -235,4 +190,45 @@ void	ft_saveroom(t_db *db)
 		temp->end = db->rooms->end;
 	else if (db->end == 2 && db->start == 2)
 		ft_link_end(db, temp->end);
+}
+
+void	ft_find_crdnts(t_db *db, t_r *temp, int name_length)
+{
+	temp->name = ft_memalloc(sizeof(char *) * (name_length + 1));
+	db->links_i = -1;
+	while (db->line[++db->links_i] ^ ' ')
+		temp->name[db->links_i] = db->line[db->links_i];
+	temp->name[db->links_i] = '\0';
+	if (ft_chrinstr(temp->name, '-'))
+		db->error = 1;
+	while (!(ft_isdigit(db->line[db->links_i])))
+		++db->links_i;
+	temp->x = ft_atoi(db->line + db->links_i);
+	while (ft_isdigit(db->line[db->links_i]))
+		++db->links_i;
+	temp->y = ft_atoi(db->line + db->links_i);
+}
+
+void	ft_saveroom(t_db *db)
+{
+	t_r	*prev;
+	t_r	*temp;
+	int name_length;
+
+	name_length = 0;
+	temp = db->rooms;
+	db->links_i = 0;
+	prev = NULL;
+	while (temp != NULL)
+	{
+		prev = temp;
+		temp = temp->next_room;
+	}
+	temp = (t_r*)malloc(sizeof(t_r));
+	while (db->line[db->links_i++] ^ ' ')
+		++name_length;
+	ft_find_crdnts(db, temp, name_length);
+	ft_init_temp(temp);
+	ft_ch_position(db, temp, prev);
+	ft_mark_rooms(db, temp);
 }

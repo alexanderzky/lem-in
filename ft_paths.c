@@ -6,20 +6,33 @@
 /*   By: ozalisky <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/14 18:15:39 by ozalisky          #+#    #+#             */
-/*   Updated: 2018/10/16 19:24:26 by ozalisky         ###   ########.fr       */
+/*   Updated: 2018/10/17 20:37:00 by ozalisky         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lemin.h"
 
-static void		ft_rollback(t_r *tmpry, t_db *db)
+void	ft_rollback(t_r *tmpry, t_db *db)
 {
 	tmpry->connected = 0;
 	if (db->steps)
 		--db->steps;
 }
 
-void			search_ways(t_r *tmpry, t_db *db)
+int		ft_check_conditions(int i_links, t_r *tmpry, t_db *db)
+{
+	if (i_links < tmpry->links_size &&
+	((!((tmpry->links)[i_links])->connected &&
+	tmpry->links[i_links]->position == -1 &&
+	tmpry->links[i_links]->step == 2147483647) ||
+	(((tmpry->links)[i_links])->step >= db->steps + 1 &&
+	tmpry->links[i_links]->position != 1 &&
+	tmpry->links[i_links]->position != 0)))
+		return (1);
+	return (0);
+}
+
+void	search_ways(t_r *tmpry, t_db *db)
 {
 	int		i_links;
 
@@ -35,15 +48,9 @@ void			search_ways(t_r *tmpry, t_db *db)
 		return ;
 	}
 	i_links = 0;
-	while (tmpry->links && (tmpry->links)[i_links])
+	while (i_links < tmpry->links_size)
 	{
-		while ((tmpry->links)[i_links] &&
-		((!((tmpry->links)[i_links])->connected &&
-		tmpry->links[i_links]->position == -1 &&
-		tmpry->links[i_links]->step == 2147483647) ||
-		(((tmpry->links)[i_links])->step >= db->steps + 1 &&
-		tmpry->links[i_links]->position != 1 &&
-			tmpry->links[i_links]->position != 0)))
+		while (ft_check_conditions(i_links, tmpry, db))
 		{
 			search_ways((tmpry->links)[i_links], db);
 			++i_links;

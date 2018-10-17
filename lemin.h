@@ -6,7 +6,7 @@
 /*   By: ozalisky <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/05 20:02:14 by ozalisky          #+#    #+#             */
-/*   Updated: 2018/10/16 17:04:14 by ozalisky         ###   ########.fr       */
+/*   Updated: 2018/10/17 20:06:33 by ozalisky         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,34 +51,25 @@ typedef struct		s_db
 
 	int				start;
 	int				end;
-
 	int				error;
-
 	t_r				*rooms;
-
-//	t_l				*links;
-
 	int				check_end;
 	int				ants_flag;
 	int				rooms_flag;
 	int				links_flag;
-
 	int 			steps;
-	int 			ant_name_counter;
-
-
+	size_t			ant_name_counter;
 	size_t			len;
 	size_t			cycle_start;
 	size_t			lenlen;
-
-
 	int				is_room_i;
 	int				is_room_spaces;
 	int				is_room_name;
 	int				is_room_coordinates;
 	int				is_room_wrong;
-
-//	int tempSize;
+	char			*source_name;
+	char			*target_name;
+	int 			links_i;
 }					t_db;
 int					ft_islink(char *str);
 void				ft_count_room_mentions(t_db *db);

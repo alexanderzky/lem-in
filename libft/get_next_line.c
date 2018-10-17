@@ -6,7 +6,7 @@
 /*   By: ozalisky <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/16 15:06:25 by ozalisky          #+#    #+#             */
-/*   Updated: 2018/10/16 18:56:04 by ozalisky         ###   ########.fr       */
+/*   Updated: 2018/10/17 19:19:40 by ozalisky         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ int		ft_read(int fd, t_gnl **list)
 
 	if (!(*list)->buffer)
 		(*list)->buffer = malloc(BUFF_SIZE);
-	if (!(temp = malloc(BUFF_SIZE + (*list)->file_size + 1)))
+	if (!(temp = ft_memalloc(BUFF_SIZE + (*list)->file_size + 1)))
 		return (-1);
 	if ((*list)->file_size > 0)
 		ft_sncpy(temp, (*list)->buffer, (*list)->file_size);
@@ -94,6 +94,7 @@ int		ft_read(int fd, t_gnl **list)
 		return (-1);
 	(*list)->file_size += rd;
 	temp[(*list)->file_size] = '\0';
+
 	return (int)(rd > 0 ? 1 : rd);
 }
 
@@ -120,6 +121,7 @@ int		get_next_line(const int fd, char **line)
 		return (rd);
 	}
 	*line = ft_strsub(clist->buffer, 0, clist->file_size + 1);
+	free(clist->buffer);
 	clist->buffer = NULL;
 	clist->file_size = 0;
 	return (1);
