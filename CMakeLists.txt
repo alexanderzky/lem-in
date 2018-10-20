@@ -106,4 +106,4 @@ add_executable(lem_in
         libft/get_next_line.c
         libft/libft.h
         lemin.c
-        lemin.h ft_links.c ft_rooms.c ft_paths.c ft_ants.c)
+        lemin.h ft_links.c ft_rooms.c ft_paths.c ft_ants.c ft_check_links.c ft_rooms_fncts.c ft_validation.c ft_lines_fncts.c)

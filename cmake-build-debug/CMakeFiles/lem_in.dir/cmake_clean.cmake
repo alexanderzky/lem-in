@@ -104,6 +104,10 @@ file(REMOVE_RECURSE
   "CMakeFiles/lem_in.dir/ft_rooms.c.o"
   "CMakeFiles/lem_in.dir/ft_paths.c.o"
   "CMakeFiles/lem_in.dir/ft_ants.c.o"
+  "CMakeFiles/lem_in.dir/ft_check_links.c.o"
+  "CMakeFiles/lem_in.dir/ft_rooms_fncts.c.o"
+  "CMakeFiles/lem_in.dir/ft_validation.c.o"
+  "CMakeFiles/lem_in.dir/ft_lines_fncts.c.o"
   "lem_in.pdb"
   "lem_in"
 )

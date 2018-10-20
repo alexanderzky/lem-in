@@ -5,6 +5,14 @@ CMakeFiles/lem_in.dir/ft_ants.c.o: .././libft/libft.h
 CMakeFiles/lem_in.dir/ft_ants.c.o: ../ft_ants.c
 CMakeFiles/lem_in.dir/ft_ants.c.o: ../lemin.h
 
+CMakeFiles/lem_in.dir/ft_check_links.c.o: .././libft/libft.h
+CMakeFiles/lem_in.dir/ft_check_links.c.o: ../ft_check_links.c
+CMakeFiles/lem_in.dir/ft_check_links.c.o: ../lemin.h
+
+CMakeFiles/lem_in.dir/ft_lines_fncts.c.o: .././libft/libft.h
+CMakeFiles/lem_in.dir/ft_lines_fncts.c.o: ../ft_lines_fncts.c
+CMakeFiles/lem_in.dir/ft_lines_fncts.c.o: ../lemin.h
+
 CMakeFiles/lem_in.dir/ft_links.c.o: .././libft/libft.h
 CMakeFiles/lem_in.dir/ft_links.c.o: ../ft_links.c
 CMakeFiles/lem_in.dir/ft_links.c.o: ../lemin.h
@@ -16,6 +24,14 @@ CMakeFiles/lem_in.dir/ft_paths.c.o: ../lemin.h
 CMakeFiles/lem_in.dir/ft_rooms.c.o: .././libft/libft.h
 CMakeFiles/lem_in.dir/ft_rooms.c.o: ../ft_rooms.c
 CMakeFiles/lem_in.dir/ft_rooms.c.o: ../lemin.h
+
+CMakeFiles/lem_in.dir/ft_rooms_fncts.c.o: .././libft/libft.h
+CMakeFiles/lem_in.dir/ft_rooms_fncts.c.o: ../ft_rooms_fncts.c
+CMakeFiles/lem_in.dir/ft_rooms_fncts.c.o: ../lemin.h
+
+CMakeFiles/lem_in.dir/ft_validation.c.o: .././libft/libft.h
+CMakeFiles/lem_in.dir/ft_validation.c.o: ../ft_validation.c
+CMakeFiles/lem_in.dir/ft_validation.c.o: ../lemin.h
 
 CMakeFiles/lem_in.dir/lemin.c.o: .././libft/libft.h
 CMakeFiles/lem_in.dir/lemin.c.o: ../lemin.c

@@ -94,7 +94,6 @@ int		ft_read(int fd, t_gnl **list)
 		return (-1);
 	(*list)->file_size += rd;
 	temp[(*list)->file_size] = '\0';
-
 	return (int)(rd > 0 ? 1 : rd);
 }
 

@@ -150,6 +150,60 @@ ft_ants.c.s:
 	$(MAKE) -f CMakeFiles/lem_in.dir/build.make CMakeFiles/lem_in.dir/ft_ants.c.s
 .PHONY : ft_ants.c.s
 
+ft_check_links.o: ft_check_links.c.o
+
+.PHONY : ft_check_links.o
+
+# target to build an object file
+ft_check_links.c.o:
+	$(MAKE) -f CMakeFiles/lem_in.dir/build.make CMakeFiles/lem_in.dir/ft_check_links.c.o
+.PHONY : ft_check_links.c.o
+
+ft_check_links.i: ft_check_links.c.i
+
+.PHONY : ft_check_links.i
+
+# target to preprocess a source file
+ft_check_links.c.i:
+	$(MAKE) -f CMakeFiles/lem_in.dir/build.make CMakeFiles/lem_in.dir/ft_check_links.c.i
+.PHONY : ft_check_links.c.i
+
+ft_check_links.s: ft_check_links.c.s
+
+.PHONY : ft_check_links.s
+
+# target to generate assembly for a file
+ft_check_links.c.s:
+	$(MAKE) -f CMakeFiles/lem_in.dir/build.make CMakeFiles/lem_in.dir/ft_check_links.c.s
+.PHONY : ft_check_links.c.s
+
+ft_lines_fncts.o: ft_lines_fncts.c.o
+
+.PHONY : ft_lines_fncts.o
+
+# target to build an object file
+ft_lines_fncts.c.o:
+	$(MAKE) -f CMakeFiles/lem_in.dir/build.make CMakeFiles/lem_in.dir/ft_lines_fncts.c.o
+.PHONY : ft_lines_fncts.c.o
+
+ft_lines_fncts.i: ft_lines_fncts.c.i
+
+.PHONY : ft_lines_fncts.i
+
+# target to preprocess a source file
+ft_lines_fncts.c.i:
+	$(MAKE) -f CMakeFiles/lem_in.dir/build.make CMakeFiles/lem_in.dir/ft_lines_fncts.c.i
+.PHONY : ft_lines_fncts.c.i
+
+ft_lines_fncts.s: ft_lines_fncts.c.s
+
+.PHONY : ft_lines_fncts.s
+
+# target to generate assembly for a file
+ft_lines_fncts.c.s:
+	$(MAKE) -f CMakeFiles/lem_in.dir/build.make CMakeFiles/lem_in.dir/ft_lines_fncts.c.s
+.PHONY : ft_lines_fncts.c.s
+
 ft_links.o: ft_links.c.o
 
 .PHONY : ft_links.o
@@ -230,6 +284,60 @@ ft_rooms.s: ft_rooms.c.s
 ft_rooms.c.s:
 	$(MAKE) -f CMakeFiles/lem_in.dir/build.make CMakeFiles/lem_in.dir/ft_rooms.c.s
 .PHONY : ft_rooms.c.s
+
+ft_rooms_fncts.o: ft_rooms_fncts.c.o
+
+.PHONY : ft_rooms_fncts.o
+
+# target to build an object file
+ft_rooms_fncts.c.o:
+	$(MAKE) -f CMakeFiles/lem_in.dir/build.make CMakeFiles/lem_in.dir/ft_rooms_fncts.c.o
+.PHONY : ft_rooms_fncts.c.o
+
+ft_rooms_fncts.i: ft_rooms_fncts.c.i
+
+.PHONY : ft_rooms_fncts.i
+
+# target to preprocess a source file
+ft_rooms_fncts.c.i:
+	$(MAKE) -f CMakeFiles/lem_in.dir/build.make CMakeFiles/lem_in.dir/ft_rooms_fncts.c.i
+.PHONY : ft_rooms_fncts.c.i
+
+ft_rooms_fncts.s: ft_rooms_fncts.c.s
+
+.PHONY : ft_rooms_fncts.s
+
+# target to generate assembly for a file
+ft_rooms_fncts.c.s:
+	$(MAKE) -f CMakeFiles/lem_in.dir/build.make CMakeFiles/lem_in.dir/ft_rooms_fncts.c.s
+.PHONY : ft_rooms_fncts.c.s
+
+ft_validation.o: ft_validation.c.o
+
+.PHONY : ft_validation.o
+
+# target to build an object file
+ft_validation.c.o:
+	$(MAKE) -f CMakeFiles/lem_in.dir/build.make CMakeFiles/lem_in.dir/ft_validation.c.o
+.PHONY : ft_validation.c.o
+
+ft_validation.i: ft_validation.c.i
+
+.PHONY : ft_validation.i
+
+# target to preprocess a source file
+ft_validation.c.i:
+	$(MAKE) -f CMakeFiles/lem_in.dir/build.make CMakeFiles/lem_in.dir/ft_validation.c.i
+.PHONY : ft_validation.c.i
+
+ft_validation.s: ft_validation.c.s
+
+.PHONY : ft_validation.s
+
+# target to generate assembly for a file
+ft_validation.c.s:
+	$(MAKE) -f CMakeFiles/lem_in.dir/build.make CMakeFiles/lem_in.dir/ft_validation.c.s
+.PHONY : ft_validation.c.s
 
 lemin.o: lemin.c.o
 
@@ -2970,6 +3078,12 @@ help:
 	@echo "... ft_ants.o"
 	@echo "... ft_ants.i"
 	@echo "... ft_ants.s"
+	@echo "... ft_check_links.o"
+	@echo "... ft_check_links.i"
+	@echo "... ft_check_links.s"
+	@echo "... ft_lines_fncts.o"
+	@echo "... ft_lines_fncts.i"
+	@echo "... ft_lines_fncts.s"
 	@echo "... ft_links.o"
 	@echo "... ft_links.i"
 	@echo "... ft_links.s"
@@ -2979,6 +3093,12 @@ help:
 	@echo "... ft_rooms.o"
 	@echo "... ft_rooms.i"
 	@echo "... ft_rooms.s"
+	@echo "... ft_rooms_fncts.o"
+	@echo "... ft_rooms_fncts.i"
+	@echo "... ft_rooms_fncts.s"
+	@echo "... ft_validation.o"
+	@echo "... ft_validation.i"
+	@echo "... ft_validation.s"
 	@echo "... lemin.o"
 	@echo "... lemin.i"
 	@echo "... lemin.s"

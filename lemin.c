@@ -6,156 +6,12 @@
 /*   By: ozalisky <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/05 20:02:21 by ozalisky          #+#    #+#             */
-/*   Updated: 2018/10/16 20:00:58 by ozalisky         ###   ########.fr       */
+/*   Updated: 2018/10/20 15:41:32 by ozalisky         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <fcntl.h>
+#include <fcntl.h> //delete me
 #include "lemin.h"
-
-void	ft_validate(t_db *db)
-{
-	if (db->ants < 1 || db->ants > 2147483647)
-	{
-		ft_printf("ERROR ants\n");
-		exit(0);
-	}
-	else if (!db->rooms)
-	{
-		ft_printf("ERROR rooms\n");
-		exit(0);
-	}
-	if (!db->rooms_flag || !db->links_flag || db->error)
-	{
-		ft_printf("ERROR rooms || links || error\n");
-		exit(0);
-	}
-	ft_check_rooms(db);
-}
-
-void	ft_comments(t_db *db)
-{
-	if (ft_strcmp(db->line, "##start") == 0)
-	{
-		db->start = 1;
-	}
-	else if (ft_strcmp(db->line, "##end") == 0)
-	{
-		db->end = 1;
-	}
-}
-
-void	ft_check_way(t_db *db)
-{
-	t_r		*temp;
-	size_t	index;
-
-	index = 0;
-	temp = db->rooms->start;
-	while (index < temp->links_size)
-	{
-		if (temp->links[index]->step != 2147483647)
-		{
-			return ;
-		}
-		index++;
-	}
-	ft_printf("ERROR no way\n");
-	exit(0);
-}
-
-int		ft_isnumber(char *str)
-{
-	int i;
-
-	i = 0;
-	if (ft_atoi(str) < 0 || ft_atoi(str) > 2147483647)
-		return (0);
-	while (str[i])
-	{
-		if (ft_isdigit(str[i]))
-		{
-			++i;
-		}
-		else
-			return (0);
-	}
-	return (1);
-}
-
-char	*ft_strcpysrc(const char *src)
-{
-	int		i;
-	char	*dst;
-
-	dst = ft_memalloc(sizeof(char*) * (ft_strlen(src) + 1));
-	i = 0;
-	while (src[i] ^ '\0')
-	{
-		dst[i] = src[i];
-		++i;
-	}
-	dst[i] = '\0';
-	return (dst);
-}
-
-void	ft_free_map(t_db *db)
-{
-	if (db->map != NULL)
-	{
-		free(db->map);
-		db->map = NULL;
-	}
-}
-
-void	ft_lineconcatmap(t_db *db)
-{
-	char	*str;
-	long	size_map;
-	long	size_line;
-	int		i;
-	int		j;
-
-	i = 0;
-	j = 0;
-	size_line = ft_strlen(db->line);
-	size_map = ft_strlen(db->map);
-	if (!(str = (char*)ft_memalloc(sizeof(char*) * (size_line + size_map + 1))))
-		db->error = 1;
-	while (db->map != NULL && db->map[i])
-		str[j++] = db->map[i++];
-	ft_free_map(db);
-	if (size_map ^ 0)
-		str[j++] = '\n';
-	i = 0;
-	while (db->line[i])
-		str[j++] = db->line[i++];
-	str[j] = '\0';
-	db->map = ft_strcpysrc(str);
-	free(str);
-	str = NULL;
-}
-
-void	ft_check_line_pt2(t_db *db)
-{
-	if (ft_isroom(db, db->line) && db->ants_flag && !db->links_flag)
-	{
-		ft_saveroom(db);
-		db->rooms_flag = 1;
-	}
-	else if (ft_islink(db->line) && db->ants_flag && db->rooms_flag)
-	{
-		ft_count_room_mentions(db);
-		db->links_flag = 1;
-	}
-	else if (db->line[0] ^ '#' || (!ft_strcmp("##start", db->line) &&
-		db->start > 0) || (!ft_strcmp("##end", db->line) && db->end > 0) ||
-		(db->line[0] == '#' && db->line[1] ^ '#' && (db->start == 1 ||
-			db->end == 1)))
-		db->error = 1;
-	else
-		db->error = 1;
-}
 
 void	ft_check_line(t_db *db)
 {
@@ -188,6 +44,7 @@ void	ft_init(t_db *db)
 {
 	db->map = NULL;
 	db->ants = 0;
+	db->ants_flag = 0;
 	db->start = -1;
 	db->end = -1;
 	db->error = 0;
@@ -223,7 +80,7 @@ void	ft_find_links(t_db *db)
 	db->lenlen = (size_t)ft_strlen(db->map);
 	while (db->len <= db->lenlen)
 	{
-		db->line=NULL;
+		db->line = NULL;
 		if (db->map[db->len] == '\n' || db->map[db->len] == '\0')
 		{
 			db->line = ft_str_cpy_ntrvl(db, db->cycle_start, db->len);

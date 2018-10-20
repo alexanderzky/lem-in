@@ -83,6 +83,12 @@
 		<Unit filename="/Users/ozalisky/Google Drive/UNIT FACTORY/PUSH/lem-in/ft_ants.c">
 			<Option target="lem_in"/>
 		</Unit>
+		<Unit filename="/Users/ozalisky/Google Drive/UNIT FACTORY/PUSH/lem-in/ft_check_links.c">
+			<Option target="lem_in"/>
+		</Unit>
+		<Unit filename="/Users/ozalisky/Google Drive/UNIT FACTORY/PUSH/lem-in/ft_lines_fncts.c">
+			<Option target="lem_in"/>
+		</Unit>
 		<Unit filename="/Users/ozalisky/Google Drive/UNIT FACTORY/PUSH/lem-in/ft_links.c">
 			<Option target="lem_in"/>
 		</Unit>
@@ -90,6 +96,12 @@
 			<Option target="lem_in"/>
 		</Unit>
 		<Unit filename="/Users/ozalisky/Google Drive/UNIT FACTORY/PUSH/lem-in/ft_rooms.c">
+			<Option target="lem_in"/>
+		</Unit>
+		<Unit filename="/Users/ozalisky/Google Drive/UNIT FACTORY/PUSH/lem-in/ft_rooms_fncts.c">
+			<Option target="lem_in"/>
+		</Unit>
+		<Unit filename="/Users/ozalisky/Google Drive/UNIT FACTORY/PUSH/lem-in/ft_validation.c">
 			<Option target="lem_in"/>
 		</Unit>
 		<Unit filename="/Users/ozalisky/Google Drive/UNIT FACTORY/PUSH/lem-in/lemin.c">
