@@ -6,7 +6,7 @@
 /*   By: ozalisky <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/12 21:01:21 by ozalisky          #+#    #+#             */
-/*   Updated: 2018/10/17 20:28:46 by ozalisky         ###   ########.fr       */
+/*   Updated: 2018/10/21 16:29:57 by ozalisky         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,6 @@ void	ft_count_room_mentions(t_db *db)
 {
 	int		j;
 	int		length;
-	t_r		*source;
-	t_r		*target;
 
 	length = 0;
 	db->links_i = 0;
@@ -82,7 +80,7 @@ void	ft_count_room_mentions(t_db *db)
 	while (j < length)
 		db->target_name[j++] = db->line[db->links_i++];
 	db->target_name[j] = '\0';
-	ft_incrs_mentions(db, source, target);
+	ft_incrs_mentions(db, NULL, NULL);
 }
 
 void	ft_link_it(t_db *db, t_r *source, t_r *target)

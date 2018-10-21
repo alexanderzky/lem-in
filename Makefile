@@ -37,7 +37,7 @@ SRC = libft/ft_atoi.c libft/ft_bzero.c libft/ft_isalnum.c libft/ft_isalpha.c lib
 		libft/ft_checkers.c libft/ft_adders.c libft/ft_lists.c libft/ft_pformat.c libft/ft_cformat.c libft/ft_sformat.c libft/ft_oformat.c libft/ft_buffer_add_wrong.c libft/ft_o_additional.c libft/ft_influence_chars.c \
 		libft/ft_wcformat.c libft/ft_u_additional.c libft/ft_p_additional.c libft/ft_additional.c libft/ft_di_minus.c libft/ft_di_additional.c libft/ft_swformat.c libft/ft_ws_minus.c libft/ft_ws_plus.c libft/ft_s_plus.c \
 		libft/ft_length_funcs.c libft/ft_x_additional.c libft/ft_x_minus.c libft/ft_itoa_base_dec.c \
-        libft/get_next_line.c ft_ants.c ft_links.c ft_paths.c ft_rooms.c lemin.c
+        libft/get_next_line.c ft_ants.c ft_links.c ft_paths.c ft_rooms.c lemin.c \
         ft_check_links.c ft_lines_fncts.c ft_rooms_fncts.c ft_validation.c\
 
 

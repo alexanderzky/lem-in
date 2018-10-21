@@ -6,7 +6,7 @@
 /*   By: ozalisky <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/14 18:15:39 by ozalisky          #+#    #+#             */
-/*   Updated: 2018/10/17 20:37:00 by ozalisky         ###   ########.fr       */
+/*   Updated: 2018/10/21 16:07:43 by ozalisky         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ void	ft_rollback(t_r *tmpry, t_db *db)
 		--db->steps;
 }
 
-int		ft_check_conditions(int i_links, t_r *tmpry, t_db *db)
+int		ft_check_conditions(size_t i_links, t_r *tmpry, t_db *db)
 {
-	if (i_links < tmpry->links_size &&
+	if (i_links < tmpry->links_size && (tmpry->links)[i_links] &&
 	((!((tmpry->links)[i_links])->connected &&
 	tmpry->links[i_links]->position == -1 &&
 	tmpry->links[i_links]->step == 2147483647) ||
@@ -34,7 +34,7 @@ int		ft_check_conditions(int i_links, t_r *tmpry, t_db *db)
 
 void	search_ways(t_r *tmpry, t_db *db)
 {
-	int		i_links;
+	size_t		i_links;
 
 	if (tmpry->position)
 	{

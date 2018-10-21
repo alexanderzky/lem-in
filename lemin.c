@@ -6,7 +6,7 @@
 /*   By: ozalisky <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/05 20:02:21 by ozalisky          #+#    #+#             */
-/*   Updated: 2018/10/20 15:41:32 by ozalisky         ###   ########.fr       */
+/*   Updated: 2018/10/21 16:22:08 by ozalisky         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,7 +103,7 @@ int		main(void)
 
 	ft_init(&db);
 	db.fd = open("../maps", O_RDONLY);
-	/*db.fd = 0;*/
+//	db.fd = 0;
 	while (!db.error && get_next_line(db.fd, &db.line) > 0)
 	{
 		if (db.line[0] == '\0')

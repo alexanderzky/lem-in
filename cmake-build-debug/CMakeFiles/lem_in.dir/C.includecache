@@ -16,7 +16,9 @@ string.h
 stdarg.h
 -
 
-/Users/ozalisky/Google Drive/UNIT FACTORY/PUSH/lem-in/ft_check_links.c
+/Users/ozalisky/Google Drive/UNIT FACTORY/PUSH/lem-in/lemin.c
+fcntl.h
+-
 lemin.h
 /Users/ozalisky/Google Drive/UNIT FACTORY/PUSH/lem-in/lemin.h
 
