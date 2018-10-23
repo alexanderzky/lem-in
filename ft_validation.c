@@ -6,7 +6,7 @@
 /*   By: ozalisky <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/20 15:39:18 by ozalisky          #+#    #+#             */
-/*   Updated: 2018/10/20 16:23:01 by ozalisky         ###   ########.fr       */
+/*   Updated: 2018/10/23 18:40:32 by ozalisky         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,17 @@ void	ft_validate(t_db *db)
 {
 	if (db->ants < 1 || db->ants > 2147483647)
 	{
-		ft_printf("ERROR ants\n");
+		ft_printf("ERROR\n");
 		exit(0);
 	}
 	if (!db->rooms)
 	{
-		ft_printf("ERROR rooms\n");
+		ft_printf("ERROR\n");
 		exit(0);
 	}
-	if (!db->rooms_flag || !db->links_flag || db->error)
+	if (!db->rooms_flag || !db->links_flag)
 	{
-		ft_printf("ERROR rooms || links || error\n");
+		ft_printf("ERROR\n");
 		exit(0);
 	}
 	ft_check_rooms(db);
@@ -59,7 +59,7 @@ void	ft_check_way(t_db *db)
 		}
 		index++;
 	}
-	ft_printf("ERROR no way\n");
+	ft_printf("ERROR\n");
 	exit(0);
 }
 

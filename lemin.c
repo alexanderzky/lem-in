@@ -6,7 +6,7 @@
 /*   By: ozalisky <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/05 20:02:21 by ozalisky          #+#    #+#             */
-/*   Updated: 2018/10/21 16:22:08 by ozalisky         ###   ########.fr       */
+/*   Updated: 2018/10/23 20:06:19 by ozalisky         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,8 +108,7 @@ int		main(void)
 	{
 		if (db.line[0] == '\0')
 		{
-			ft_printf("ERROR\n");
-			exit(0);
+			break ;
 		}
 		ft_check_line(&db);
 	}

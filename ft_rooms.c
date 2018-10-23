@@ -6,7 +6,7 @@
 /*   By: ozalisky <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/12 21:02:54 by ozalisky          #+#    #+#             */
-/*   Updated: 2018/10/20 15:34:32 by ozalisky         ###   ########.fr       */
+/*   Updated: 2018/10/23 20:03:24 by ozalisky         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ void	ft_mark_rooms(t_db *db, t_r *temp)
 		ft_link_start(db, temp->start);
 	if (db->rooms->end)
 		temp->end = db->rooms->end;
-	else if (db->end == 2 && db->start == 2)
+	else if (db->end == 2)
 		ft_link_end(db, temp->end);
 }
 

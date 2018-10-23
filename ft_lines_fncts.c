@@ -6,7 +6,7 @@
 /*   By: ozalisky <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/20 15:41:35 by ozalisky          #+#    #+#             */
-/*   Updated: 2018/10/21 15:59:34 by ozalisky         ###   ########.fr       */
+/*   Updated: 2018/10/23 20:33:41 by ozalisky         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,9 +63,7 @@ void	ft_check_line_pt2(t_db *db)
 	}
 	else if (db->line[0] ^ '#' || !db->ants_flag || (!ft_strcmp("##start",
 	db->line) && db->start > 0) || (!ft_strcmp("##end", db->line) &&
-	db->end > 0) || (db->line[0] == '#' && db->line[1] == '#' && db->line[2]
-	!= '#' && (ft_strcmp("##start", db->line) || ft_strcmp("##end", db->line)))
-	|| (db->line[0] == '#' && db->line[1] ^ '#' && (db->start == 1 ||
-	db->end == 1)))
+	db->end > 0) || (db->line[0] == '#' &&
+	(db->start == 1 || db->end == 1)))
 		db->error = 1;
 }
