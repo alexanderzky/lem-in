@@ -6,7 +6,7 @@
 /*   By: ozalisky <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/05 20:02:14 by ozalisky          #+#    #+#             */
-/*   Updated: 2018/10/23 20:06:19 by ozalisky         ###   ########.fr       */
+/*   Updated: 2018/10/23 20:33:41 by ozalisky         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ typedef struct		s_room
 
 typedef struct		s_db
 {
-	int				fd;//delete after all is done!
 	char			*line;
 
 	char			*map;

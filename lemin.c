@@ -6,11 +6,10 @@
 /*   By: ozalisky <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/05 20:02:21 by ozalisky          #+#    #+#             */
-/*   Updated: 2018/10/23 20:06:19 by ozalisky         ###   ########.fr       */
+/*   Updated: 2018/10/23 20:33:41 by ozalisky         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <fcntl.h> //delete me
 #include "lemin.h"
 
 void	ft_check_line(t_db *db)
@@ -102,9 +101,7 @@ int		main(void)
 	t_db	db;
 
 	ft_init(&db);
-	db.fd = open("../maps", O_RDONLY);
-//	db.fd = 0;
-	while (!db.error && get_next_line(db.fd, &db.line) > 0)
+	while (!db.error && get_next_line(0, &db.line) > 0)
 	{
 		if (db.line[0] == '\0')
 		{
@@ -113,7 +110,6 @@ int		main(void)
 		ft_check_line(&db);
 	}
 	free(db.line);
-	close(db.fd);
 	ft_validate(&db);
 	ft_find_links(&db);
 	ft_check_links(&db);
